@@ -12,7 +12,7 @@
 ### The goal of Magic Within is to bring the enchantment of the Wizarding World closer to everyone through creativity, interactivity, and discovery. With engaging visuals, thoughtful design, and dynamic features, the website serves as a digital Hogwarts experience for all — from lifelong Harry Potter fans to curious newcomers. Our mission is to let everyone have fun, explore, and fully immerse themselves in the magical world of Harry Potter.
 
 ## **5. Website Outline**
-- ### **Home** – A welcoming page with a Hogwarts-themed background, introduction text, and navigation menu.
+- ### **Home** – A welcoming page with a Hogwarts-themed background, Hogwarts acceptance letter. introduction text, and navigation menu.
 
 - ### **Sorting Hat** – A JavaScript quiz that sorts users into one of the four Hogwarts houses (Gryffindor, Slytherin, Hufflepuff, Ravenclaw).
 
