@@ -35,32 +35,7 @@
 
 - ### **Moments of Magic:** Hover effects and modal pop-ups to enlarge or display quotes for each scene.
 
-## **7. Navigation Design** 
-## All web pages will share a consistent, responsive top navigation bar with links to:
-
-- ### Home
-- ### Sorting Hat
-- ### Spells & Charms
-- ### Journey Through Hogwarts
-- ### Moments of Magic
-## **Navigation Features:**
-
- ### 1. Fixed at the top for easy access.
- ### 2. Hover effects to highlight active links.
- ### 3. Collapsible hamburger menu for mobile responsiveness.
-
-## **8. Footer Design**
-## Each page will include a footer containing:
-
-- ### Copyright Notice: © 2025 Magic Within. All rights reserved.
-
-- ### Sources/Citations: Credits for all images, quotes, and references used throughout the website.
-
-- ### Social Media Links: Interactive icons for Facebook, Instagram, and Twitter using image sprites to reduce loading time.
-
-- ### The footer will have a dark gradient background with gold text for a magical aesthetic.
-
-## **9. Wireframes / Mock-ups**
+## **7. Wireframes / Mock-ups**
 
 ## Below are the initial wireframe descriptions for all proposed webpages. Each layout shows the general structure and navigation flow:
 
@@ -98,3 +73,30 @@
 - ### The top navigation bar connects all pages.
 - ### The logo doubles as a link back to the Home page.
 - ### A consistent header and footer maintain the Hogwarts theme across the entire site.
+
+## **8. Navigation Design** 
+## All web pages will share a consistent, responsive top navigation bar with links to:
+
+- ### Home
+- ### Sorting Hat
+- ### Spells & Charms
+- ### Journey Through Hogwarts
+- ### Moments of Magic
+## **Navigation Features:**
+
+ ### 1. Fixed at the top for easy access.
+ ### 2. Hover effects to highlight active links.
+ ### 3. Collapsible hamburger menu for mobile responsiveness.
+
+## **9. Footer Design**
+## Each page will include a footer containing:
+
+- ### Copyright Notice: © 2025 Magic Within. All rights reserved.
+
+- ### Sources/Citations: Credits for all images, quotes, and references used throughout the website.
+
+- ### Social Media Links: Interactive icons for Facebook, Instagram, and Twitter using image sprites to reduce loading time.
+
+- ### The footer will have a dark gradient background with gold text for a magical aesthetic.
+
+
