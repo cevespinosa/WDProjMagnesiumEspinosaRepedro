@@ -1,6 +1,6 @@
 # Cassie Espinosa & Maxine Repedro | 9-Magnesium
 
-## **1. Website Title** - "Magic Within"
+## **1. Website Title** - "Wizard’s Web"
 ## **2. Second Title** - "Discover your Hogwarts Story"
 ## **3. Logo Description** - 
 ### The Magic Within logo features Hogwarts' four houses with a wand and a broom intersecting in the middle of the logo, surrounded by glowing sparks. It uses red, yellow, green, and blue colors to represent the houses and includes the broom and wand to symbolize the lessons taught at Hogwarts.
