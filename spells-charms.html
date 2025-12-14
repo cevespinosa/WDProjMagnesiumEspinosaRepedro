@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magic Within | Spells Book</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    background: #2c1f0f; 
+    font-family: 'Montserrat', sans-serif;
+    color: #f5e6b3; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .book-wrapper {
+    width: 90%;
+    max-width: 1000px;
+    height: 80vh;
+    perspective: 2000px;
+  }
+
+  .book {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    background: linear-gradient(145deg, #c8a865, #a87f4d);
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px; 
+  }
+
+  
+  .page.left {
+    width: 50%;
+    padding: 0;
+    border-right: 2px solid #4a0707;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #510a0a; 
+  }
+
+  .page.left img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+  }
+
+ 
+  .page.right {
+    width: 50%;
+    padding: 30px;
+    box-sizing: border-box;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+    overflow-y: auto;
+    background: #e3cfa2; 
+    border-left: 2px solid #510a0a;
+  }
+
+  .page.right.flipped {
+    transform: rotateY(-180deg);
+  }
+
+  h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    margin-top: 0;
+    background: #510a0a; 
+    border-bottom: 2px solid ;
+    padding-bottom: 10px;
+    color: #e3cfa2; 
+  }
+
+  .spell-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    margin-top: 20px;
+    color: #6b3e1e;
+  }
+
+  .pronunciation {
+    font-style: italic;
+    margin-bottom: 10px;
+    opacity: 0.85;
+    color: #4f2f18;
+  }
+
+  p {
+    margin: 6px 0;
+    color: #3d2412;
+  }
+
+  .controls {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    box-sizing: border-box;
+  }
+
+  button {
+    padding: 12px 30px;
+    font-family: 'Cinzel', serif;
+    background: #a87f4d;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+    color: #f5e6b3;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+    background: #c8a865;
+  }
+</style>
+</head>
+<body>
+
+<div class="book-wrapper">
+  <div class="book">
+  
+    <div class="page left" id="leftPage">
+      <img id="spellImage" src="https://i.pinimg.com/736x/09/34/86/093486eaa9ea90384410c4c89bbbd04f.jpg" alt="Spell Image">
+    </div>
+
+
+    <div class="page right" id="rightPage">
+      <div id="spellText"></div>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevPage()">◀ Previous</button>
+      <button onclick="nextPage()">Next ▶</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const spells = [
+  { title: 'Wingardium Leviosa', pronunciation: 'win-GAR-dee-um leh-vee-OH-sa', effect: 'Makes objects float in the air.', movement: 'Swish and flick' },
+  { title: 'Expelliarmus', pronunciation: 'ex-PELL-ee-AR-mus', effect: 'Disarms an opponent by knocking away their wand.', movement: 'Sharp diagonal slash' },
+  { title: 'Lumos', pronunciation: 'LOO-mos', effect: 'Creates a bright light at the tip of the wand.', movement: 'Small upward flick' },
+  { title: 'Nox', pronunciation: 'NOKS', effect: 'Extinguishes the light produced by Lumos.', movement: 'Quick downward motion' },
+  { title: 'Accio', pronunciation: 'AK-see-oh', effect: 'Summons an object toward the caster.', movement: 'Sharp pulling motion' },
+  { title: 'Alohomora', pronunciation: 'uh-LOH-ho-MOR-uh', effect: 'Unlocks doors and windows.', movement: 'Gentle twisting motion' },
+  { title: 'Colloportus', pronunciation: 'kol-oh-POR-tus', effect: 'Magically locks doors.', movement: 'Firm sealing gesture' },
+  { title: 'Expecto Patronum', pronunciation: 'ex-PEK-toh puh-TROH-num', effect: 'Summons a Patronus to repel Dementors.', movement: 'Strong forward arc' }
+];
+
+let currentPage = 0;
+const rightPage = document.getElementById('rightPage');
+const spellText = document.getElementById('spellText');
+
+function renderPage() {
+  const spell = spells[currentPage];
+  spellText.innerHTML = `
+    <h2>Standard Book of Spells</h2>
+    <div class="spell-name">${spell.title}</div>
+    <div class="pronunciation">${spell.pronunciation}</div>
+    <p><strong>Effect:</strong> ${spell.effect}</p>
+    <p><strong>Wand Movement:</strong> ${spell.movement}</p>
+  `;
+}
+
+function nextPage() {
+  if (currentPage < spells.length - 1) {
+    rightPage.classList.add('flipped');
+    setTimeout(() => {
+      currentPage++;
+      renderPage();
+      rightPage.classList.remove('flipped');
+    }, 400);
+  }
+}
+
+function prevPage() {
+  if (currentPage > 0) {
+    rightPage.classList.add('flipped');
+    setTimeout(() => {
+      currentPage--;
+      renderPage();
+      rightPage.classList.remove('flipped');
+    }, 400);
+  }
+}
+
+
+renderPage();
+</script>
+
+</body>
+</html>
