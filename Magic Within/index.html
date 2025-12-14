@@ -21,6 +21,7 @@
       font-family: 'Montserrat', sans-serif;
       line-height: 1.7;
       text-align: center; 
+      overflow-x: hidden;
     }
 
     nav {
@@ -69,11 +70,31 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      position: relative;
     }
 
     header img { width: 150px; animation: fadeDown 1s ease forwards; }
     header h1 { font-family: 'Cinzel', serif; font-size: 2.6rem; margin: 10px 0 0; animation: fadeUp 1.2s ease forwards; }
-    header p { opacity: 0.9; animation: fadeUp 1.6s ease forwards; }
+
+    #introText { 
+      font-size: 1.2rem; 
+      font-weight: 500; 
+      margin-top: 10px; 
+      color: rgb(244, 240, 222); 
+      animation: sparkleText 1.5s linear infinite;
+    }
+
+    @keyframes sparkleText {
+      0%, 100% { text-shadow: 0 0 5px rgb(244, 240, 222), 0 0 10px rgb(244, 240, 222); }
+      50% { text-shadow: 0 0 10px rgb(244, 240, 222), 0 0 20px rgb(244, 240, 222); }
+    }
+
+    #introDesc {
+      font-size: 1rem;
+      color: rgb(244, 240, 222);
+      margin-top: 6px;
+      opacity: 0.9;
+    }
 
     main {
       max-width: 900px;
@@ -85,9 +106,8 @@
       animation: fadeIn 1.2s ease;
     }
 
-    h2 { font-family: 'Cinzel', serif; color: rgb(245, 237, 189); border-left: 6px solid 245, 237, 189; padding-left: 14px; margin-top: 2.5rem; }
+    h2 { font-family: 'Cinzel', serif; color: rgb(245, 237, 189); border-left: 6px solid rgb(245, 237, 189); padding-left: 14px; margin-top: 2.5rem; }
 
-    /* SORTING HAT */
     .sorting-container {
       display: flex;
       flex-direction: column;
@@ -101,107 +121,25 @@
       background-size: cover;
     }
 
-    #sortingHat {
-      width: 350px;
-      transition: transform 0.4s ease;
-      margin-bottom: 20px;
-      z-index: 1;
-      position: relative;
-    }
-
+    #sortingHat { width: 350px; transition: transform 0.4s ease; margin-bottom: 20px; z-index: 1; position: relative; }
     .thinking { animation: shake 0.5s infinite; }
+    @keyframes shake { 0% { transform: rotate(0deg); } 25% { transform: rotate(4deg); } 50% { transform: rotate(0deg); } 75% { transform: rotate(-4deg); } 100% { transform: rotate(0deg); } }
 
-    @keyframes shake {
-      0% { transform: rotate(0deg); }
-      25% { transform: rotate(4deg); }
-      50% { transform: rotate(0deg); }
-      75% { transform: rotate(-4deg); }
-      100% { transform: rotate(0deg); }
-    }
-
-    button {
-      margin-top: 18px;
-      padding: 12px 28px;
-      font-family: 'Cinzel', serif;
-      background: rgb(184, 175, 132);
-      border: none;
-      border-radius: 12px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: transform 0.3s;
-      z-index: 2;
-      position: relative;
-    }
-
+    button { margin-top: 18px; padding: 12px 28px; font-family: 'Cinzel', serif; background: rgb(184, 175, 132); border: none; border-radius: 12px; font-size: 1rem; cursor: pointer; transition: transform 0.3s; z-index: 2; position: relative; }
     button:hover { transform: scale(1.05); }
 
-    /* Pop-up text */
-    #houseText {
-      font-size: 1.3rem;
-      font-weight: 600;
-      text-align: center;
-      margin-top: 10px;
-    }
+    #houseText { font-size: 1.3rem; font-weight: 600; text-align: center; margin-top: 10px; }
+    #houseImageContainer { margin-top: 20px; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    #houseImg { width: 300px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); display: none; transition: opacity 0.8s ease, box-shadow 0.5s ease-in-out; }
+    .sparkle { animation: sparkleHouse 1.2s ease-in-out infinite alternate; }
+    @keyframes sparkleHouse { 0% { box-shadow: 0 0 10px rgb(244, 240, 222), 0 0 15px rgba(255,255,255,0.2); } 50% { box-shadow: 0 0 15px rgb(244, 240, 222), 0 0 25px rgba(255,255,255,0.4); } 100% { box-shadow: 0 0 10px rgb(244, 240, 222), 0 0 15px rgba(255,255,255,0.2); } }
 
-    /* House Image & Description */
-    #houseImageContainer {
-      margin-top: 20px;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+    #houseDesc { margin-top: 15px; max-width: 600px; font-size: 0.95rem; line-height: 1.5; display: none; color: rgb(244, 240, 222); text-align: center; }
 
-    #houseImg {
-      width: 300px;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-      display: none;
-      transition: opacity 0.8s ease, box-shadow 0.5s ease-in-out;
-    }
-
-    /* Sparkle effect for house image - color set via JS */
-    .sparkle {
-      animation: sparkle 1.2s ease-in-out infinite alternate;
-    }
-
-    @keyframes sparkle {
-      0% { box-shadow: 0 0 10px var(--sparkle-color, gold), 0 0 15px rgba(255,255,255,0.2); }
-      50% { box-shadow: 0 0 15px var(--sparkle-color, gold), 0 0 25px rgba(255,255,255,0.4); }
-      100% { box-shadow: 0 0 10px var(--sparkle-color, gold), 0 0 15px rgba(255,255,255,0.2); }
-    }
-
-    #houseDesc {
-      margin-top: 15px;
-      max-width: 600px;
-      font-size: 0.95rem;
-      line-height: 1.5;
-      display: none;
-      color: #f5e6b3;
-      text-align: center;
-    }
-
-    /* House Banner Text */
     .house-banners { display: flex; justify-content: center; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
-    .banner {
-      opacity: 0;
-      padding: 14px 22px;
-      border-radius: 14px;
-      font-family: 'Cinzel', serif;
-      font-weight: 600;
-      color: white;
-      transform: translateY(30px) scale(0.9);
-      transition: all 0.7s ease;
-      box-shadow: 0 0 15px rgba(255,215,0,0.3);
-      text-align: center;
-    }
+    .banner { opacity: 0; padding: 14px 22px; border-radius: 14px; font-family: 'Cinzel', serif; font-weight: 600; color: white; transform: translateY(30px) scale(0.9); transition: all 0.7s ease; box-shadow: 0 0 15px rgba(255,215,0,0.3); text-align: center; }
     .banner.show { opacity: 1; transform: translateY(0) scale(1); }
-
-    .gryffindor { background: #7f0909; }
-    .slytherin { background: #0d4d2d; }
-    .hufflepuff { background: #ecb939; color: #000; }
-    .ravenclaw { background: #0e1a40; }
+    .gryffindor { background: #7f0909; } .slytherin { background: #0d4d2d; } .hufflepuff { background: #ecb939; color: #000; } .ravenclaw { background: #0e1a40; }
 
     footer { background: linear-gradient(to right, #000, #1a1a40); text-align: center; padding: 20px; color: gold; font-size: 0.9rem; }
 
@@ -222,7 +160,8 @@
 <header id="home">
   <img src="assets/logo.png" alt="Magic Within Logo">
   <h1>Magic Within</h1>
-  <p>Discover Your Hogwarts Story</p>
+  <p id="introText">You have been accepted into Hogwarts!</p>
+  <p id="introDesc">Start your magical journey and experience the wonders of Hogwarts School.</p>
 </header>
 
 <main>
@@ -267,33 +206,31 @@ function startSorting() {
   houseDesc.style.display = "none";
 
   text.textContent = "Hmm... difficult... very difficult...";
-  text.style.textAlign = "center"; 
   hat.classList.add("thinking");
 
   setTimeout(() => {
     const houses = [
-      {name: "Gryffindor", banner: "assets/gryffindor.png", desc: "Founded by Godric Gryffindor, Gryffindors are students possessing characteristics he most valued, such as courage, chivalry, and determination.", class: "gryffindor", color: "#ff0000"},
-      {name: "Slytherin", banner: "assets/slytherin.png", desc: "Founded by Salazar Slytherin, Slytherins are known for being cunning and ambitious, although it has produced many Dark witches and wizards.", class: "slytherin", color: "#1abc9c"},
-      {name: "Hufflepuff", banner: "assets/hufflepuff.png", desc: "Founded by the medieval witch Helga Hufflepuff, Hufflepuff values hard work, dedication, patience, loyalty, and fair play.", class: "hufflepuff", color: "#f1c40f"},
-      {name: "Ravenclaw", banner: "assets/ravenclaw.png", desc: "Founded by Rowena Ravenclaw, members are characterised by their wit, learning, intellect, and wisdom.", class: "ravenclaw", color: "#3498db"}
+      {name: "Gryffindor", banner: "assets/gryffindor.png", desc: "Founded by Godric Gryffindor, Gryffindors are brave, daring, and determined.", class: "gryffindor", color: "rgb(244, 240, 222)"},
+      {name: "Slytherin", banner: "assets/slytherin.png", desc: "Founded by Salazar Slytherin, Slytherins are ambitious, cunning, and resourceful.", class: "slytherin", color: "rgb(244, 240, 222)"},
+      {name: "Hufflepuff", banner: "assets/hufflepuff.png", desc: "Founded by Helga Hufflepuff, Hufflepuffs are loyal, patient, and hardworking.", class: "hufflepuff", color: "rgb(244, 240, 222)"},
+      {name: "Ravenclaw", banner: "assets/ravenclaw.png", desc: "Founded by Rowena Ravenclaw, Ravenclaws are wise, witty, and intelligent.", class: "ravenclaw", color: "rgb(244, 240, 222)"}
     ];
 
     const chosen = houses[Math.floor(Math.random() * houses.length)];
 
     hat.classList.remove("thinking");
     text.textContent = `Ahh... I know just where to put you! Welcome to ${chosen.name.toUpperCase()}!`;
-    text.style.textAlign = "center";
 
-    document.querySelector("." + chosen.class).classList.add("show");
+    banners.forEach(b => {
+      if (b.classList.contains(chosen.class)) b.classList.add("show");
+    });
 
-    // Show house image with sparkle
     houseImg.src = chosen.banner;
     houseImg.style.display = "block";
     houseImg.style.opacity = 0;
     houseImg.style.setProperty("--sparkle-color", chosen.color);
     houseImg.classList.add("sparkle");
 
-    // Show house description
     houseDesc.textContent = chosen.desc;
     houseDesc.style.display = "block";
     houseDesc.style.opacity = 0;
