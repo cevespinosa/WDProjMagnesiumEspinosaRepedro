@@ -4,164 +4,250 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Magic Within | Spells Book</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-  body {
-    margin: 0;
-    background: #2c1f0f; 
-    font-family: 'Montserrat', sans-serif;
-    color: #f5e6b3; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+body {
+  margin: 0;
+  background: #2c1f0f;
+  font-family: 'Montserrat', sans-serif;
+  color: #f5e6b3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 
-  .book-wrapper {
-    width: 90%;
-    max-width: 1000px;
-    height: 80vh;
-    perspective: 2000px;
-  }
+.book-wrapper {
+  width: 90%;
+  max-width: 1000px;
+}
 
-  .book {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-    background: linear-gradient(145deg, #c8a865, #a87f4d);
-    overflow: hidden;
-    position: relative;
-    border-radius: 4px; 
-  }
+/* BOOK */
+.book {
+  width: 100%;
+  height: 520px;
+  display: flex;
+  position: relative;
+  background: linear-gradient(145deg, #c8a865, #a87f4d);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  overflow: hidden;
+  transform: scaleX(0); /* initial closed book */
+  animation: openBook 1s forwards;
+}
 
-  
-  .page.left {
-    width: 50%;
-    padding: 0;
-    border-right: 2px solid #4a0707;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #510a0a; 
-  }
+/* Open book animation */
+@keyframes openBook {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
 
-  .page.left img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
-  }
+/* LEFT PAGE = COVER */
+.page.left {
+  width: 50%;
+  background: #510a0a;
+  border-right: 2px solid #3a0505;
+}
 
- 
-  .page.right {
-    width: 50%;
-    padding: 30px;
-    box-sizing: border-box;
-    transform-origin: left;
-    transform-style: preserve-3d;
-    transition: transform 0.8s ease;
-    overflow-y: auto;
-    background: #e3cfa2; 
-    border-left: 2px solid #510a0a;
-  }
+.page.left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-  .page.right.flipped {
-    transform: rotateY(-180deg);
-  }
+/* RIGHT PAGE */
+.page.right {
+  width: 50%;
+  padding: 30px;
+  background: #e3cfa2;
+  box-sizing: border-box;
+  transform-origin: left;
+  transition: transform 0.8s ease;
+  position: relative;
+  overflow: hidden;
+}
 
-  h2 {
-    font-family: 'Cinzel', serif;
-    font-size: 2rem;
-    margin-top: 0;
-    background: #510a0a; 
-    border-bottom: 2px solid ;
-    padding-bottom: 10px;
-    color: #e3cfa2; 
-  }
+/* Right page flipping */
+.page.right.flipped {
+  transform: rotateY(-180deg);
+}
 
-  .spell-name {
-    font-family: 'Cinzel', serif;
-    font-size: 1.8rem;
-    margin-top: 20px;
-    color: #6b3e1e;
-  }
+/* Shining animation overlay */
+.page.right::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+  transform: skewX(-25deg);
+  pointer-events: none;
+  animation: shine 2s infinite;
+}
 
-  .pronunciation {
-    font-style: italic;
-    margin-bottom: 10px;
-    opacity: 0.85;
-    color: #4f2f18;
-  }
+@keyframes shine {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
 
-  p {
-    margin: 6px 0;
-    color: #3d2412;
-  }
+h2 {
+  font-family: 'Cinzel', serif;
+  color: #510a0a;
+  border-bottom: 2px solid #510a0a;
+  padding-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
 
-  .controls {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 40px;
-    box-sizing: border-box;
-  }
+.spell-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  color: #6b3e1e;
+  position: relative;
+  z-index: 1;
+}
 
-  button {
-    padding: 12px 30px;
-    font-family: 'Cinzel', serif;
-    background: #a87f4d;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: transform 0.3s, background 0.3s;
-    color: #f5e6b3;
-  }
+.pronunciation {
+  font-style: italic;
+  color: #4f2f18;
+  position: relative;
+  z-index: 1;
+}
 
-  button:hover {
-    transform: scale(1.05);
-    background: #c8a865;
-  }
+p {
+  color: #3d2412;
+  position: relative;
+  z-index: 1;
+}
+
+/* DEMO IMAGE BELOW TEXT USING IMG */
+.demo {
+  width: 280px;
+  height: 180px;
+  margin: 20px auto 0;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  position: relative;
+  z-index: 1;
+}
+
+.demo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* CONTROLS */
+.controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 12px 30px;
+  font-family: 'Cinzel', serif;
+  background: #a87f4d;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #f5e6b3;
+}
+
+button:hover {
+  background: #c8a865;
+}
 </style>
 </head>
+
 <body>
 
 <div class="book-wrapper">
+
   <div class="book">
-  
-    <div class="page left" id="leftPage">
-      <img id="spellImage" src="https://i.pinimg.com/736x/09/34/86/093486eaa9ea90384410c4c89bbbd04f.jpg" alt="Spell Image">
+
+    <!-- LEFT PAGE: BOOK COVER -->
+    <div class="page left">
+      <img id="spellImage" src="https://i.pinimg.com/736x/09/34/86/093486eaa9ea90384410c4c89bbbd04f.jpg" alt="Book Cover">
     </div>
 
-
+    <!-- RIGHT PAGE -->
     <div class="page right" id="rightPage">
       <div id="spellText"></div>
+      <div class="demo">
+        <img id="demoImg" src="" alt="Spell Demonstration">
+      </div>
     </div>
 
-    <div class="controls">
-      <button onclick="prevPage()">◀ Previous</button>
-      <button onclick="nextPage()">Next ▶</button>
-    </div>
   </div>
+
+  <!-- BUTTONS -->
+  <div class="controls">
+    <button onclick="prevPage()">◀ Previous</button>
+    <button onclick="nextPage()">Next ▶</button>
+  </div>
+
 </div>
 
 <script>
 const spells = [
-  { title: 'Wingardium Leviosa', pronunciation: 'win-GAR-dee-um leh-vee-OH-sa', effect: 'Makes objects float in the air.', movement: 'Swish and flick' },
-  { title: 'Expelliarmus', pronunciation: 'ex-PELL-ee-AR-mus', effect: 'Disarms an opponent by knocking away their wand.', movement: 'Sharp diagonal slash' },
-  { title: 'Lumos', pronunciation: 'LOO-mos', effect: 'Creates a bright light at the tip of the wand.', movement: 'Small upward flick' },
-  { title: 'Nox', pronunciation: 'NOKS', effect: 'Extinguishes the light produced by Lumos.', movement: 'Quick downward motion' },
-  { title: 'Accio', pronunciation: 'AK-see-oh', effect: 'Summons an object toward the caster.', movement: 'Sharp pulling motion' },
-  { title: 'Alohomora', pronunciation: 'uh-LOH-ho-MOR-uh', effect: 'Unlocks doors and windows.', movement: 'Gentle twisting motion' },
-  { title: 'Colloportus', pronunciation: 'kol-oh-POR-tus', effect: 'Magically locks doors.', movement: 'Firm sealing gesture' },
-  { title: 'Expecto Patronum', pronunciation: 'ex-PEK-toh puh-TROH-num', effect: 'Summons a Patronus to repel Dementors.', movement: 'Strong forward arc' }
+  {
+    title: 'Wingardium Leviosa',
+    pronunciation: 'win-GAR-dee-um leh-vee-OH-sa',
+    effect: 'Makes objects float in the air.',
+    movement: 'Swish and flick',
+    image: 'https://cdn.displate.com/artwork/857x1200/2023-11-10/0a96f11246f19b93c1e4d4ef37574a17_b07071cc2da3f7d63e4b245ed5629401.jpg',
+    alt: 'Demonstration of Wingardium Leviosa spell'
+  },
+  {
+    title: 'Expelliarmus',
+    pronunciation: 'ex-PELL-ee-AR-mus',
+    effect: 'Disarms an opponent.',
+    movement: 'Sharp diagonal slash',
+    image: 'https://cdn.displate.com/artwork/857x1200/2023-11-10/5fa7045887443488c8391deafa4baab9_d5233dfd9859bc826953412041e10ffb.jpg',
+    alt: 'Demonstration of Expelliarmus spell'
+  },
+  {
+    title: 'Lumos',
+    pronunciation: 'LOO-mos',
+    effect: 'Creates light.',
+    movement: 'Small upward flick',
+    image: 'https://cdn.displate.com/artwork/857x1200/2023-11-10/46ca1e9ddcc4582bf7208929282f3a0e_3521a598310e5f80c2e90e3727ec4739.jpg',
+    alt: 'Demonstration of Lumos spell'
+  },
+  {
+    title: 'Accio',
+    pronunciation: 'AK-see-oh',
+    effect: 'Summons an object toward the caster.',
+    movement: 'Sharp pulling motion',
+    image: 'https://cdn.displate.com/artwork/857x1200/2023-11-10/0b69df68b6a3e28ae4fded844c2d2b92_671a5f409b4360771e4d993350b9ac01.jpg',
+    alt: 'Demonstration of Accio spell'
+  },
+  {
+    title: 'Alohomora',
+    pronunciation: 'uh-LOH-ho-MOR-uh',
+    effect: 'Unlocks doors and windows.',
+    movement: 'Gentle twisting motion',
+    image: 'https://cdn.displate.com/artwork/460x640/2023-11-10/ff9598e3b811b8089cfc9701ac0df8fa_5e71566a964a9dcefe9c3f9d7982b585.jpg',
+    alt: 'Demonstration of Alohomora spell'
+  },
+  {
+    title: 'Expecto Patronum',
+    pronunciation: 'ex-PEK-toh puh-TROH-num',
+    effect: 'Summons a Patronus to repel Dementors.',
+    movement: 'Strong forward arc',
+    image: 'https://cdn.displate.com/artwork/857x1200/2023-11-10/398c46e8cbe717fa2452ab38663c5a3b_2aaeb00adaf7f754c0a0fd768138a95f.jpg',
+    alt: 'Demonstration of Expecto Patronum spell'
+  }
 ];
 
 let currentPage = 0;
 const rightPage = document.getElementById('rightPage');
 const spellText = document.getElementById('spellText');
+const demoImg = document.getElementById('demoImg');
 
 function renderPage() {
   const spell = spells[currentPage];
@@ -172,6 +258,8 @@ function renderPage() {
     <p><strong>Effect:</strong> ${spell.effect}</p>
     <p><strong>Wand Movement:</strong> ${spell.movement}</p>
   `;
+  demoImg.src = spell.image;
+  demoImg.alt = spell.alt;
 }
 
 function nextPage() {
@@ -196,7 +284,7 @@ function prevPage() {
   }
 }
 
-
+// INITIAL LOAD
 renderPage();
 </script>
 
