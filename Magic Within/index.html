@@ -73,7 +73,6 @@
       position: relative;
     }
 
-    header img { width: 150px; animation: fadeDown 1s ease forwards; }
     header h1 { font-family: 'Cinzel', serif; font-size: 2.6rem; margin: 10px 0 0; animation: fadeUp 1.2s ease forwards; }
 
     #introText { 
@@ -132,16 +131,16 @@
     #houseImageContainer { margin-top: 20px; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; }
     #houseImg { width: 300px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); display: none; transition: opacity 0.8s ease, box-shadow 0.5s ease-in-out; }
     .sparkle { animation: sparkleHouse 1.2s ease-in-out infinite alternate; }
-    @keyframes sparkleHouse { 0% { box-shadow: 0 0 10px rgb(244, 240, 222), 0 0 15px rgba(255,255,255,0.2); } 50% { box-shadow: 0 0 15px rgb(244, 240, 222), 0 0 25px rgba(255,255,255,0.4); } 100% { box-shadow: 0 0 10px rgb(244, 240, 222), 0 0 15px rgba(255,255,255,0.2); } }
+    @keyframes sparkleHouse { 0% { box-shadow: 0 0 10px var(--sparkle-color), 0 0 15px rgba(255,255,255,0.2); } 50% { box-shadow: 0 0 15px var(--sparkle-color), 0 0 25px rgba(255,255,255,0.4); } 100% { box-shadow: 0 0 10px var(--sparkle-color), 0 0 15px rgba(255,255,255,0.2); } }
 
     #houseDesc { margin-top: 15px; max-width: 600px; font-size: 0.95rem; line-height: 1.5; display: none; color: rgb(244, 240, 222); text-align: center; }
 
     .house-banners { display: flex; justify-content: center; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
     .banner { opacity: 0; padding: 14px 22px; border-radius: 14px; font-family: 'Cinzel', serif; font-weight: 600; color: white; transform: translateY(30px) scale(0.9); transition: all 0.7s ease; box-shadow: 0 0 15px rgba(255,215,0,0.3); text-align: center; }
     .banner.show { opacity: 1; transform: translateY(0) scale(1); }
-    .gryffindor { background: #7f0909; } .slytherin { background: #0d4d2d; } .hufflepuff { background: #ecb939; color: #000; } .ravenclaw { background: #0e1a40; }
+    .gryffindor { background: #7f0909; } .slytherin { background: #0d4d2d; } .hufflepuff { background: #d5be82; color: #000; } .ravenclaw { background: #0e1a40; }
 
-    footer { background: linear-gradient(to right, #000, #1a1a40); text-align: center; padding: 20px; color: gold; font-size: 0.9rem; }
+    footer { background: linear-gradient(to right, #000, #1b1209); text-align: center; padding: 20px; color: rgb(220, 210, 156); font-size: 0.9rem; }
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -158,7 +157,6 @@
 </nav>
 
 <header id="home">
-  <img src="assets/logo.png" alt="Magic Within Logo">
   <h1>Magic Within</h1>
   <p id="introText">You have been accepted into Hogwarts!</p>
   <p id="introDesc">Start your magical journey and experience the wonders of Hogwarts School.</p>
@@ -166,6 +164,13 @@
 
 <main>
   <h2 id="sorting">Sorting Hat Ceremony</h2>
+
+  <p style="max-width:700px; margin: 15px auto; font-size:1rem; color: rgb(244, 240, 222); line-height:1.5;">
+    Step into the magical world of Hogwarts and discover the house where you truly belong! The Sorting Hat listens carefully to your thoughts, values, and personality, ensuring you are placed in the house that suits you best. Will you show bravery in Gryffindor, cunning in Slytherin, loyalty in Hufflepuff, or wisdom in Ravenclaw?
+  </p>
+  <p style="max-width:700px; margin: 10px auto 30px; font-size:1rem; color: rgb(244, 240, 222); line-height:1.5;">
+    Each house has its own unique qualities and history, shaping the adventures and friendships you will experience at Hogwarts. Take a deep breath, trust the Sorting Hat, and let your Hogwarts journey begin!
+  </p>
 
   <div class="sorting-container">
     <img src="assets/sortinghat.png" alt="Sorting Hat" id="sortingHat">
@@ -210,10 +215,10 @@ function startSorting() {
 
   setTimeout(() => {
     const houses = [
-      {name: "Gryffindor", banner: "assets/gryffindor.png", desc: "Founded by Godric Gryffindor, Gryffindors are brave, daring, and determined.", class: "gryffindor", color: "rgb(244, 240, 222)"},
-      {name: "Slytherin", banner: "assets/slytherin.png", desc: "Founded by Salazar Slytherin, Slytherins are ambitious, cunning, and resourceful.", class: "slytherin", color: "rgb(244, 240, 222)"},
-      {name: "Hufflepuff", banner: "assets/hufflepuff.png", desc: "Founded by Helga Hufflepuff, Hufflepuffs are loyal, patient, and hardworking.", class: "hufflepuff", color: "rgb(244, 240, 222)"},
-      {name: "Ravenclaw", banner: "assets/ravenclaw.png", desc: "Founded by Rowena Ravenclaw, Ravenclaws are wise, witty, and intelligent.", class: "ravenclaw", color: "rgb(244, 240, 222)"}
+      {name: "Gryffindor", banner: "assets/gryffindor.png", desc: "Founded by Godric Gryffindor, Gryffindors are brave, daring, and determined.", class: "gryffindor", color: "#7f0909"},
+      {name: "Slytherin", banner: "assets/slytherin.png", desc: "Founded by Salazar Slytherin, Slytherins are ambitious, cunning, and resourceful.", class: "slytherin", color: "#0d4d2d"},
+      {name: "Hufflepuff", banner: "assets/hufflepuff.png", desc: "Founded by Helga Hufflepuff, Hufflepuffs are loyal, patient, and hardworking.", class: "hufflepuff", color: "#ecb939"},
+      {name: "Ravenclaw", banner: "assets/ravenclaw.png", desc: "Founded by Rowena Ravenclaw, Ravenclaws are wise, witty, and intelligent.", class: "ravenclaw", color: "#0e1a40"}
     ];
 
     const chosen = houses[Math.floor(Math.random() * houses.length)];
