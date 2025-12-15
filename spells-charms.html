@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Magic Within | Spells Book</title>
+<title>Magic Within | Spells and Charms</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 
@@ -14,14 +14,54 @@ body {
   font-family: 'Montserrat', sans-serif;
   color: #f5e6b3;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   min-height: 100vh;
 }
 
+/* NAVIGATION BAR */
+nav {
+  width: 100%;
+  background: linear-gradient(to right, #3a1e0f, #2c1f0f);
+  display: flex;
+  justify-content: center;
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+nav a {
+  margin: 0 18px;
+  color: #f5e6b3;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: gold;
+  transition: width 0.3s;
+}
+
+nav a:hover::after,
+nav a.active::after { width: 100%; }
+
+nav a:hover,
+nav a.active { color: gold; }
+
+/* BOOK WRAPPER */
 .book-wrapper {
   width: 90%;
   max-width: 1000px;
+  margin-top: 40px;
 }
 
 /* BOOK */
@@ -164,6 +204,15 @@ button:hover {
 </head>
 
 <body>
+
+<!-- NAVIGATION BAR -->
+<nav>
+  <a href="../Home.html">Home</a> 
+  <a href="../Home.html#sorting">Sorting Hat</a> 
+  <a href="../spells-charms.html" class="active">Spells and Charms</a>
+  <a href="#journey">Journey</a>
+  <a href="../Moments of Magic.html">Moments</a>
+</nav>
 
 <div class="book-wrapper">
 
