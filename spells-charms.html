@@ -19,7 +19,7 @@ body {
   min-height: 100vh;
 }
 
-/* NAV */
+
 nav {
   width: 100%;
   background: linear-gradient(to right, #3a2a1c, #2c1f0f);
@@ -55,7 +55,7 @@ nav a.active::after { width: 100%; }
 nav a:hover,
 nav a.active { color: gold; }
 
-/* INTRO */
+
 .intro {
   max-width: 900px;
   margin: 40px auto;
@@ -68,7 +68,7 @@ nav a.active { color: gold; }
   margin-bottom: 20px;
 }
 
-/* INTRO BG IMAGE */
+
 .intro-bg {
   background: url(assets/harry.avif) center/cover no-repeat;
   border: 6px solid #7f4e1a;
@@ -76,7 +76,7 @@ nav a.active { color: gold; }
   padding: 40px;
 }
 
-/* TEXT ANIMATION */
+
 .intro-bg p {
   background: rgba(233, 176, 143, 0.705);
   padding: 16px;
@@ -181,7 +181,6 @@ p { color: #3d2412; }
   border-radius: 10px;
 }
 
-/* CONTROLS */
 .controls {
   margin-top: 20px;
   display: flex;
@@ -201,12 +200,35 @@ button {
 
 button:hover { background: #c8a865; }
 
-/* FOOTER */
 footer {
+  background: linear-gradient(to right, #000, #1b1209);
   text-align: center;
   padding: 20px;
-  background: #000;
+  color: rgb(220, 210, 156);
+  font-size: 0.9rem;
 }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up-title {
+  animation: fadeUp 1.2s ease forwards;
+  margin-bottom: 20px;
+}
+
 </style>
 </head>
 
@@ -221,7 +243,7 @@ footer {
 </nav>
 
 <section class="intro">
-  <h1>Spells & Charms</h1>
+  <h1 class="fade-up-title">Spells & Charms</h1>
   <div class="intro-bg">
     <p>
       Mastering spells and charms is essential for every witch and wizard. They allow you to perform
@@ -316,13 +338,15 @@ function prevPage() {
   }
 }
 
-// INITIAL LOAD
+
 renderPage();
 </script>
 
 <footer>
-  © 2025 Magic Within | Educational use only
+  © 2025 Magic Within. All rights reserved.<br>
+  Harry Potter is a trademark of Warner Bros. Educational use only.
 </footer>
+
 
 </body>
 </html>
