@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Magic Within | Spells and Charms</title>
+<title>Magic Within | Spells & Charms</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
-  background: #2c1f0f;
   font-family: 'Montserrat', sans-serif;
+  background: #1e1a12;
   color: #f5e6b3;
   display: flex;
   flex-direction: column;
@@ -19,24 +19,22 @@ body {
   min-height: 100vh;
 }
 
-/* NAVIGATION BAR */
+/* NAV */
 nav {
   width: 100%;
-  background: linear-gradient(to right, #3a1e0f, #2c1f0f);
+  background: linear-gradient(to right, #3a2a1c, #2c1f0f);
   display: flex;
   justify-content: center;
   padding: 14px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 nav a {
   margin: 0 18px;
   color: #f5e6b3;
   text-decoration: none;
-  font-weight: 500;
   position: relative;
 }
 
@@ -57,14 +55,53 @@ nav a.active::after { width: 100%; }
 nav a:hover,
 nav a.active { color: gold; }
 
-/* BOOK WRAPPER */
-.book-wrapper {
-  width: 90%;
-  max-width: 1000px;
-  margin-top: 40px;
+/* INTRO */
+.intro {
+  max-width: 900px;
+  margin: 40px auto;
+  text-align: center;
 }
 
-/* BOOK */
+.intro h1 {
+  font-family: 'Cinzel', serif;
+  color: rgb(232, 226, 196);
+  margin-bottom: 20px;
+}
+
+/* INTRO BG IMAGE */
+.intro-bg {
+  background: url(assets/harry.avif) center/cover no-repeat;
+  border: 6px solid #7f4e1a;
+  border-radius: 16px;
+  padding: 40px;
+}
+
+/* TEXT ANIMATION */
+.intro-bg p {
+  background: rgba(233, 176, 143, 0.705);
+  padding: 16px;
+  border-radius: 10px;
+  margin: 12px 0;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeUp 1.5s ease forwards;
+}
+
+.intro-bg p:nth-child(1) { animation-delay: 0.3s; }
+.intro-bg p:nth-child(2) { animation-delay: 0.8s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SPELL BOOK */
+.book-wrapper {
+  width: 90%;
+  max-width: 900px;
+  margin: 30px auto;
+}
+
 .book {
   width: 100%;
   height: 520px;
@@ -73,17 +110,15 @@ nav a.active { color: gold; }
   background: linear-gradient(145deg, #c8a865, #a87f4d);
   box-shadow: 0 20px 50px rgba(0,0,0,0.8);
   overflow: hidden;
-  transform: scaleX(0); /* initial closed book */
+  transform: scaleX(0);
   animation: openBook 1s forwards;
 }
 
-/* Open book animation */
 @keyframes openBook {
-  0% { transform: scaleX(0); }
-  100% { transform: scaleX(1); }
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
-/* LEFT PAGE = COVER */
 .page.left {
   width: 50%;
   background: #510a0a;
@@ -96,7 +131,6 @@ nav a.active { color: gold; }
   object-fit: cover;
 }
 
-/* RIGHT PAGE */
 .page.right {
   width: 50%;
   padding: 30px;
@@ -108,12 +142,8 @@ nav a.active { color: gold; }
   overflow: hidden;
 }
 
-/* Right page flipping */
-.page.right.flipped {
-  transform: rotateY(-180deg);
-}
+.page.right.flipped { transform: rotateY(-180deg); }
 
-/* Shining animation overlay */
 .page.right::before {
   content: '';
   position: absolute;
@@ -131,45 +161,17 @@ nav a.active { color: gold; }
   100% { left: 125%; }
 }
 
-h2 {
-  font-family: 'Cinzel', serif;
-  color: #510a0a;
-  border-bottom: 2px solid #510a0a;
-  padding-bottom: 10px;
-  position: relative;
-  z-index: 1;
-}
+h2 { font-family: 'Cinzel', serif; color: #510a0a; border-bottom: 2px solid #510a0a; padding-bottom: 10px; }
+.spell-name { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #6b3e1e; }
+.pronunciation { font-style: italic; color: #4f2f18; }
+p { color: #3d2412; }
 
-.spell-name {
-  font-family: 'Cinzel', serif;
-  font-size: 1.8rem;
-  color: #6b3e1e;
-  position: relative;
-  z-index: 1;
-}
-
-.pronunciation {
-  font-style: italic;
-  color: #4f2f18;
-  position: relative;
-  z-index: 1;
-}
-
-p {
-  color: #3d2412;
-  position: relative;
-  z-index: 1;
-}
-
-/* DEMO IMAGE BELOW TEXT USING IMG */
 .demo {
   width: 280px;
   height: 180px;
   margin: 20px auto 0;
   border-radius: 10px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-  position: relative;
-  z-index: 1;
 }
 
 .demo img {
@@ -197,15 +199,19 @@ button {
   color: #f5e6b3;
 }
 
-button:hover {
-  background: #c8a865;
+button:hover { background: #c8a865; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION BAR -->
 <nav>
   <a href="../Home.html">Home</a> 
   <a href="../Sorting Hat.html">Sorting Hat</a> 
@@ -214,31 +220,36 @@ button:hover {
   <a href="../Moments of Magic.html">Moments</a>
 </nav>
 
+<section class="intro">
+  <h1>Spells & Charms</h1>
+  <div class="intro-bg">
+    <p>
+      Mastering spells and charms is essential for every witch and wizard. They allow you to perform
+      magic safely and effectively, from everyday tasks to powerful defensive spells. Understanding
+      spells develops skill, focus, and magical knowledge that every student at Hogwarts must learn.
+    </p>
+    <p>
+      Spells and charms shape how magic interacts with the world. Using the right incantation with
+      precision can solve problems, protect others, and enhance your abilities. They teach that magic
+      is not just power, but responsibility, creativity, and wisdom.
+    </p>
+  </div>
+</section>
+
 <div class="book-wrapper">
-
   <div class="book">
-
-    <!-- LEFT PAGE: BOOK COVER -->
     <div class="page left">
-      <img id="spellImage" src="https://i.pinimg.com/736x/09/34/86/093486eaa9ea90384410c4c89bbbd04f.jpg" alt="Book Cover">
+      <img src="https://i.pinimg.com/736x/09/34/86/093486eaa9ea90384410c4c89bbbd04f.jpg" alt="Book Cover">
     </div>
-
-    <!-- RIGHT PAGE -->
     <div class="page right" id="rightPage">
       <div id="spellText"></div>
-      <div class="demo">
-        <img id="demoImg" src="" alt="Spell Demonstration">
-      </div>
+      <div class="demo"><img id="demoImg" src="" alt="Spell Demo"></div>
     </div>
-
   </div>
-
-  <!-- BUTTONS -->
   <div class="controls">
     <button onclick="prevPage()">◀ Previous</button>
     <button onclick="nextPage()">Next ▶</button>
   </div>
-
 </div>
 
 <script>
@@ -248,48 +259,21 @@ const spells = [
     pronunciation: 'win-GAR-dee-um leh-vee-OH-sa',
     effect: 'Makes objects float in the air.',
     movement: 'Swish and flick',
-    image: 'https://cdn.displate.com/artwork/857x1200/2023-11-10/0a96f11246f19b93c1e4d4ef37574a17_b07071cc2da3f7d63e4b245ed5629401.jpg',
-    alt: 'Demonstration of Wingardium Leviosa spell'
+    image: 'https://cdn.displate.com/artwork/857x1200/2023-11-10/0a96f11246f19b93c1e4d4ef37574a17_b07071cc2da3f7d63e4b245ed5629401.jpg'
   },
   {
     title: 'Expelliarmus',
     pronunciation: 'ex-PELL-ee-AR-mus',
     effect: 'Disarms an opponent.',
     movement: 'Sharp diagonal slash',
-    image: 'https://cdn.displate.com/artwork/857x1200/2023-11-10/5fa7045887443488c8391deafa4baab9_d5233dfd9859bc826953412041e10ffb.jpg',
-    alt: 'Demonstration of Expelliarmus spell'
+    image: 'https://cdn.displate.com/artwork/857x1200/2023-11-10/5fa7045887443488c8391deafa4baab9_d5233dfd9859bc826953412041e10ffb.jpg'
   },
   {
     title: 'Lumos',
     pronunciation: 'LOO-mos',
     effect: 'Creates light.',
     movement: 'Small upward flick',
-    image: 'https://cdn.displate.com/artwork/857x1200/2023-11-10/46ca1e9ddcc4582bf7208929282f3a0e_3521a598310e5f80c2e90e3727ec4739.jpg',
-    alt: 'Demonstration of Lumos spell'
-  },
-  {
-    title: 'Accio',
-    pronunciation: 'AK-see-oh',
-    effect: 'Summons an object toward the caster.',
-    movement: 'Sharp pulling motion',
-    image: 'https://cdn.displate.com/artwork/857x1200/2023-11-10/0b69df68b6a3e28ae4fded844c2d2b92_671a5f409b4360771e4d993350b9ac01.jpg',
-    alt: 'Demonstration of Accio spell'
-  },
-  {
-    title: 'Alohomora',
-    pronunciation: 'uh-LOH-ho-MOR-uh',
-    effect: 'Unlocks doors and windows.',
-    movement: 'Gentle twisting motion',
-    image: 'https://cdn.displate.com/artwork/460x640/2023-11-10/ff9598e3b811b8089cfc9701ac0df8fa_5e71566a964a9dcefe9c3f9d7982b585.jpg',
-    alt: 'Demonstration of Alohomora spell'
-  },
-  {
-    title: 'Expecto Patronum',
-    pronunciation: 'ex-PEK-toh puh-TROH-num',
-    effect: 'Summons a Patronus to repel Dementors.',
-    movement: 'Strong forward arc',
-    image: 'https://cdn.displate.com/artwork/857x1200/2023-11-10/398c46e8cbe717fa2452ab38663c5a3b_2aaeb00adaf7f754c0a0fd768138a95f.jpg',
-    alt: 'Demonstration of Expecto Patronum spell'
+    image: 'https://cdn.displate.com/artwork/857x1200/2023-11-10/46ca1e9ddcc4582bf7208929282f3a0e_3521a598310e5f80c2e90e3727ec4739.jpg'
   }
 ];
 
@@ -308,7 +292,6 @@ function renderPage() {
     <p><strong>Wand Movement:</strong> ${spell.movement}</p>
   `;
   demoImg.src = spell.image;
-  demoImg.alt = spell.alt;
 }
 
 function nextPage() {
@@ -336,6 +319,10 @@ function prevPage() {
 // INITIAL LOAD
 renderPage();
 </script>
+
+<footer>
+  © 2025 Magic Within | Educational use only
+</footer>
 
 </body>
 </html>
