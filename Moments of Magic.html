@@ -13,12 +13,9 @@ body {
   font-family: 'Montserrat', sans-serif;
   background: #1e1a12;
   color: #f5e6b3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-/* NAVIGATION BAR */
+/* NAV */
 nav {
   width: 100%;
   background: linear-gradient(to right, #3a2a1c, #2c1f0f);
@@ -28,14 +25,12 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 nav a {
   margin: 0 18px;
   color: #f5e6b3;
   text-decoration: none;
-  font-weight: 500;
   position: relative;
 }
 
@@ -56,245 +51,248 @@ nav a.active::after { width: 100%; }
 nav a:hover,
 nav a.active { color: gold; }
 
+/* INTRO */
+.intro {
+  max-width: 1000px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.intro h1 {
+  font-family: 'Cinzel', serif;
+  color: rgb(232, 226, 196);
+  margin-bottom: 20px;
+  animation: fadeFloat 2s ease forwards;
+}
+
+/* INTRO BG IMAGE */
+.intro-bg {
+  background: url(/assets/memories.png) center/cover no-repeat;
+  border: 6px solid #7f4e1a;
+  border-radius: 16px;
+  padding: 40px;
+}
+
+/* TEXT ANIMATION */
+.intro-bg p {
+  background: rgba(0,0,0,0.6);
+  padding: 16px;
+  border-radius: 10px;
+  margin: 12px 0;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeUp 1.8s ease forwards;
+}
+
+.intro-bg p:nth-child(1) { animation-delay: 0.5s; }
+.intro-bg p:nth-child(2) { animation-delay: 1.2s; }
+
 /* MOMENTS GRID */
 main {
   max-width: 1000px;
-  width: 90%;
   margin: 30px auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
-/* Hogwarts Painting Style Frame */
 .moment {
   background: #3e2c1b;
   border: 8px solid #7f4e1a;
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  position: relative;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.7);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s;
 }
 
-.moment:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.9);
-}
+.moment:hover { transform: scale(1.05); }
 
-/* Fixed size for all moment images */
 .moment img {
   width: 100%;
   height: 220px;
   object-fit: cover;
-  border-bottom: 3px solid #7f4e1a;
 }
 
-.moment .quote {
+.quote {
   padding: 12px;
-  font-size: 0.95rem;
   text-align: center;
-  background: rgba(0,0,0,0.5);
-  color: #f5e6b3;
   font-style: italic;
+  background: rgba(0,0,0,0.5);
+  animation: glowText 3s ease-in-out infinite;
 }
 
 /* MODAL */
 .modal {
   display: none;
   position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.9);
+  inset: 0;
+  background: rgba(0,0,0,0.95);
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  z-index: 2000;
 }
 
 .modal-content {
-  position: relative;
-  max-width: 800px;
-  width: 90%;
   background: #3e2c1b;
   border: 6px solid gold;
   border-radius: 12px;
-  text-align: center;
   padding: 20px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.8);
+  max-width: 90vw;
+  max-height: 90vh;
+  position: relative;
+  animation: fadeUp 0.8s ease;
 }
 
 .modal-content img {
   width: 100%;
-  height: 400px; /* fixed modal image height */
-  object-fit: cover;
-  border-radius: 8px;
-  border: 4px solid #7f4e1a;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
 }
 
-.modal-content p {
-  margin-top: 12px;
-  font-size: 1rem;
-  color: #f5e6b3;
-  font-style: italic;
-}
-
-/* MODAL BUTTONS */
-.modal .close,
-.modal .prev,
-.modal .next {
+.modal button {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   background: gold;
-  color: #2c1f0f;
   border: none;
-  padding: 10px 16px;
-  font-weight: 700;
+  padding: 10px 14px;
   cursor: pointer;
-  border-radius: 6px;
 }
 
-.modal .close { top: 15px; right: 15px; transform: none; }
-.modal .prev { left: -60px; }
-.modal .next { right: -60px; }
-
-.modal .prev:hover,
-.modal .next:hover,
-.modal .close:hover {
-  background: #f5e6b3;
-}
+.close { top: 10px; right: 10px; }
+.prev { left: -60px; top: 50%; }
+.next { right: -60px; top: 50%; }
 
 /* FOOTER */
 footer {
-  width: 100%;
   text-align: center;
   padding: 20px;
-  background: linear-gradient(to right, #000, #1b1209);
-  color: rgb(220, 210, 156);
-  font-size: 0.9rem;
-  margin-top: 40px;
+  background: #000;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeFloat {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowText {
+  0% { text-shadow: 0 0 5px rgba(255,215,0,0.3); }
+  50% { text-shadow: 0 0 15px rgba(255,215,0,0.6); }
+  100% { text-shadow: 0 0 5px rgba(255,215,0,0.3); }
 }
 </style>
 </head>
+
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="../Home.html">Home</a> 
-  <a href="../Sorting Hat.html">Sorting Hat</a> 
+  <a href="../Home.html#sorting">Sorting Hat</a> 
   <a href="../spells-charms.html" class="active">Spells and Charms</a>
-  <a href="../Journey Through Hogwarts.html">Journey</a>
+  <a href="../journey.html">Journey</a>
   <a href="../Moments of Magic.html">Moments</a>
 </nav>
 
-<main id="moments">
-  <!-- Year 1 -->
+<section class="intro">
+  <h1>Moments of Magic</h1>
+
+  <div class="intro-bg">
+    <p>
+      Moments of Magic shows the most important scenes from Harry Potter’s seven years
+      at Hogwarts. These moments highlight the challenges he faced, the lessons he learned,
+      and the choices that shaped who he became. Each year marks a turning point in his journey,
+      from discovering the wizarding world to understanding his true purpose.
+    </p>
+    <p>
+      Like enchanted paintings in the castle halls, these memories stay alive through time.
+      They capture moments of courage, friendship, and sacrifice that defined the story.
+      Every scene reminds us that magic is not only found in spells, but in standing up for
+      what is right and believing in others.
+    </p>
+  </div>
+</section>
+
+<main>
   <div class="moment" onclick="openModal(0)">
-    <img src="https://preview.redd.it/in-harry-potter-and-the-philosophers-stone-2001-harry-v0-bbt573th42ia1.jpg?width=640&crop=smart&auto=webp&s=39e470304818dcc9d471de076cf0fcfba0ae54b6" alt= "Hogwarts Letter">
-    <div class="quote">Harry receives his Hogwarts letter (Year 1)</div>
+    <img src="https://api.time.com/wp-content/uploads/2017/06/harry-potter.jpeg">
+    <div class="quote">Hogwarts Letter (Year 1)</div>
   </div>
 
-  <!-- Year 2 -->
   <div class="moment" onclick="openModal(1)">
-    <img src="https://static0.srcdn.com/wordpress/wp-content/uploads/2023/03/feature-image-the-basilisk-explained.jpg" alt="Basilisk Fight">
-    <div class="quote">Harry defeats the Basilisk (Year 2)</div>
+    <img src="https://static0.srcdn.com/wordpress/wp-content/uploads/2023/03/feature-image-the-basilisk-explained.jpg">
+    <div class="quote">Basilisk Battle (Year 2)</div>
   </div>
 
-  <!-- Year 3 -->
   <div class="moment" onclick="openModal(2)">
-    <img src="https://contentful.harrypotter.com/usf1vwtuqyxm/10PCK4YO7MDOxFAqd1KhQJ/ce147b6a5bdaeb216a4073ca91161621/time-turner_2_1800x1248.png" alt="Time Turner">
-    <div class="quote">Saving Buckbeak with Time Turner (Year 3)</div>
+    <img src="https://contentful.harrypotter.com/usf1vwtuqyxm/10PCK4YO7MDOxFAqd1KhQJ/ce147b6a5bdaeb216a4073ca91161621/time-turner_2_1800x1248.png">
+    <div class="quote">Time Turner (Year 3)</div>
   </div>
 
-  <!-- Year 4 -->
   <div class="moment" onclick="openModal(3)">
-    <img src="https://contentful.harrypotter.com/usf1vwtuqyxm/3C3YOcwXaUFwUHSty4tarh/6ab72d65cba1452a4bd3270b5be625ec/HP-F4-goblet-of-fire-dragon-first-task-triwizard-tournament-hungarian-horntail-web-landscape?q=75&fm=webp&w=914" alt="Triwizard">
-    <div class="quote">Triwizard Tournament: Dragon Task (Year 4)</div>
+    <img src="https://contentful.harrypotter.com/usf1vwtuqyxm/3C3YOcwXaUFwUHSty4tarh/6ab72d65cba1452a4bd3270b5be625ec/HP-F4-goblet-of-fire-dragon-first-task-triwizard-tournament-hungarian-horntail-web-landscape">
+    <div class="quote">Triwizard Tournament (Year 4)</div>
   </div>
 
-  <!-- Year 5 -->
   <div class="moment" onclick="openModal(4)">
-    <img src="https://static0.cbrimages.com/wordpress/wp-content/uploads/2021/11/Harry-Potter-Dumbledores-Army.jpeg" alt="Dumbledore's Army">
-    <div class="quote">Dumbledore's Army Practices (Year 5)</div>
+    <img src="https://static0.cbrimages.com/wordpress/wp-content/uploads/2021/11/Harry-Potter-Dumbledores-Army.jpeg">
+    <div class="quote">Dumbledore’s Army (Year 5)</div>
   </div>
 
-  <!-- Year 6 -->
   <div class="moment" onclick="openModal(5)">
-    <img src="https://fantasyfragment.com/wp-content/uploads/2023/05/peakpx-1024x768.jpg" alt="Half-Blood Prince">
-    <div class="quote">Discovering Horcruxes (Year 6)</div>
+    <img src="https://fantasyfragment.com/wp-content/uploads/2023/05/peakpx-1024x768.jpg">
+    <div class="quote">Horcrux Discoveries (Year 6)</div>
   </div>
 
-  <!-- Year 7 -->
   <div class="moment" onclick="openModal(6)">
-    <img src="https://contentful.harrypotter.com/usf1vwtuqyxm/2M5ugMdwX3i2qmA5ph28kv/2d10e62d54885089b7155aa3f9ae372b/fact-file-hero-battle-of-hogwarts-hp-f8-duel.jpg?q=75&fm=webp&w=1200&h=832&fit=pad" alt="Battle of Hogwarts">
+    <img src="https://contentful.harrypotter.com/usf1vwtuqyxm/2M5ugMdwX3i2qmA5ph28kv/2d10e62d54885089b7155aa3f9ae372b/fact-file-hero-battle-of-hogwarts-hp-f8-duel.jpg">
     <div class="quote">Battle of Hogwarts (Year 7)</div>
   </div>
 </main>
 
-<!-- MODAL -->
 <div class="modal" id="modal">
   <div class="modal-content">
     <button class="close" onclick="closeModal()">✖</button>
     <button class="prev" onclick="prevMoment()">⮜</button>
     <button class="next" onclick="nextMoment()">⮞</button>
-    <img id="modalImg" src="" alt="Moment Image">
+    <img id="modalImg">
     <p id="modalQuote"></p>
   </div>
 </div>
 
 <footer>
-  © 2025 Magic Within. All rights reserved.<br>
-  Harry Potter is a trademark of Warner Bros. Educational use only.
+  © 2025 Magic Within | Educational use only
 </footer>
 
 <script>
 const moments = [
-  { img: 'https://preview.redd.it/in-harry-potter-and-the-philosophers-stone-2001-harry-v0-bbt573th42ia1.jpg?width=640&crop=smart&auto=webp&s=39e470304818dcc9d471de076cf0fcfba0ae54b6', quote: "Harry receives his Hogwarts letter (Year 1)" },
-  { img: 'https://static0.srcdn.com/wordpress/wp-content/uploads/2023/03/feature-image-the-basilisk-explained.jpg', quote: "Harry defeats the Basilisk (Year 2)" },
-  { img: 'https://contentful.harrypotter.com/usf1vwtuqyxm/10PCK4YO7MDOxFAqd1KhQJ/ce147b6a5bdaeb216a4073ca91161621/time-turner_2_1800x1248.png', quote: "Saving Buckbeak with Time Turner (Year 3)" },
-  { img: 'https://contentful.harrypotter.com/usf1vwtuqyxm/3C3YOcwXaUFwUHSty4tarh/6ab72d65cba1452a4bd3270b5be625ec/HP-F4-goblet-of-fire-dragon-first-task-triwizard-tournament-hungarian-horntail-web-landscape?q=75&fm=webp&w=914', quote: "Triwizard Tournament: Dragon Task (Year 4)" },
-  { img: 'https://static0.cbrimages.com/wordpress/wp-content/uploads/2021/11/Harry-Potter-Dumbledores-Army.jpeg',quote: "Dumbledore's Army Practices (Year 5)" },
-  { img: 'https://fantasyfragment.com/wp-content/uploads/2023/05/peakpx-1024x768.jpg', quote: "Discovering Horcruxes (Year 6)" },
-  { img: 'https://contentful.harrypotter.com/usf1vwtuqyxm/2M5ugMdwX3i2qmA5ph28kv/2d10e62d54885089b7155aa3f9ae372b/fact-file-hero-battle-of-hogwarts-hp-f8-duel.jpg?q=75&fm=webp&w=1200&h=832&fit=pad', quote: "Battle of Hogwarts (Year 7)" }
+  {img:"https://api.time.com/wp-content/uploads/2017/06/harry-potter.jpeg", quote:"Hogwarts Letter (Year 1)"},
+  {img:"https://static0.srcdn.com/wordpress/wp-content/uploads/2023/03/feature-image-the-basilisk-explained.jpg", quote:"Basilisk Battle (Year 2)"},
+  {img:"https://contentful.harrypotter.com/usf1vwtuqyxm/10PCK4YO7MDOxFAqd1KhQJ/ce147b6a5bdaeb216a4073ca91161621/time-turner_2_1800x1248.png", quote:"Time Turner (Year 3)"},
+  {img:"https://contentful.harrypotter.com/usf1vwtuqyxm/3C3YOcwXaUFwUHSty4tarh/6ab72d65cba1452a4bd3270b5be625ec/HP-F4-goblet-of-fire-dragon-first-task-triwizard-tournament-hungarian-horntail-web-landscape", quote:"Triwizard Tournament (Year 4)"},
+  {img:"https://static0.cbrimages.com/wordpress/wp-content/uploads/2021/11/Harry-Potter-Dumbledores-Army.jpeg", quote:"Dumbledore’s Army (Year 5)"},
+  {img:"https://fantasyfragment.com/wp-content/uploads/2023/05/peakpx-1024x768.jpg", quote:"Horcrux Discoveries (Year 6)"},
+  {img:"https://contentful.harrypotter.com/usf1vwtuqyxm/2M5ugMdwX3i2qmA5ph28kv/2d10e62d54885089b7155aa3f9ae372b/fact-file-hero-battle-of-hogwarts-hp-f8-duel.jpg", quote:"Battle of Hogwarts (Year 7)"}
 ];
 
-let currentMoment = 0;
-const modal = document.getElementById('modal');
-const modalImg = document.getElementById('modalImg');
-const modalQuote = document.getElementById('modalQuote');
+let index = 0;
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImg");
+const modalQuote = document.getElementById("modalQuote");
 
-function openModal(index) {
-  currentMoment = index;
-  modal.style.display = 'flex';
-  showMoment();
+function openModal(i){
+  index=i;
+  modal.style.display="flex";
+  modalImg.src=moments[index].img;
+  modalQuote.textContent=moments[index].quote;
 }
-
-function closeModal() {
-  modal.style.display = 'none';
-}
-
-function showMoment() {
-  modalImg.src = moments[currentMoment].img;
-  modalQuote.textContent = moments[currentMoment].quote;
-}
-
-function nextMoment() {
-  currentMoment = (currentMoment + 1) % moments.length;
-  showMoment();
-}
-
-function prevMoment() {
-  currentMoment = (currentMoment - 1 + moments.length) % moments.length;
-  showMoment();
-}
-
-modal.addEventListener('click', (e) => {
-  if(e.target === modal) closeModal();
-});
+function closeModal(){ modal.style.display="none"; }
+function nextMoment(){ index=(index+1)%moments.length; openModal(index); }
+function prevMoment(){ index=(index-1+moments.length)%moments.length; openModal(index); }
 </script>
 
 </body>
