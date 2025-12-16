@@ -16,7 +16,7 @@
       overflow-x: hidden;
     }
 
-    /* NAVIGATION BAR */
+    
     nav {
       position: sticky;
       top: 0;
@@ -52,7 +52,7 @@
     header {
       height: 360px;
       background: linear-gradient(to bottom right, rgba(95, 60, 30, 0.6), rgba(0,0,0,0.85)),
-                  url('assets/class.jpg') no-repeat center/cover;
+                  url('../assets/class.jpg') no-repeat center/cover;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -133,7 +133,7 @@
       color: gold;
     }
 
-    /* Zoom overlay */
+   
     .zoom-overlay {
       position: fixed;
       inset: 0;
@@ -193,7 +193,7 @@
       margin-top: 60px;
     }
 
-    /* Scrollbar for modal */
+    
     .zoom-window::-webkit-scrollbar {
       width: 8px;
     }
@@ -226,11 +226,11 @@ header h1 {
 
   <!-- NAV -->
   <nav>
-  <a href="../Home.html">Home</a> 
-  <a href="../Sorting Hat.html">Sorting Hat</a> 
-  <a href="../spells-charms.html">Spells and Charms</a>
-  <a href="../Journey Through Hogwarts.html"class="active">Journey</a>
-  <a href="../Moments of Magic.html">Moments</a>
+  <a href="Home.html">Home</a>
+<a href="Sorting Hat.html">Sorting Hat</a>
+<a href="spells-charms.html">Spells and Charms</a>
+<a href="Journey Through Hogwarts.html">Journey</a>
+<a href="Moments of Magic.html">Moments</a>
 </nav>
 
   <header id="home">
@@ -251,7 +251,7 @@ header h1 {
         `<p style='margin-bottom: 1.2em;'>Step into the dimly lit Potions classroom, where cauldrons bubble and ingredients from across the wizarding world await your careful touch. Here, students learn to combine magical herbs, liquids, and powders to brew everything from simple healing potions to complex elixirs capable of extraordinary effects. Precision, patience, and a steady hand are essential as even a small mistake can create unexpected results!</p>
          <p>In Potions class, you’ll practice iconic recipes like the Polyjuice Potion, Felix Felicis, and the basic antidotes for common magical mishaps. Each lesson emphasizes both theory and hands-on practice, teaching you not only the magical formula but the reasoning behind every ingredient. Success here is measured in skill, knowledge, and sometimes a little luck.</p>`,
       )">
-        <img src="assets/potions.jpg" alt="Potions Classroom">
+        <img src="../assets/potions.jpg" alt="Potions Classroom">
         <div class="classroom-label">Potions</div>
       </div>
 
@@ -260,9 +260,9 @@ header h1 {
         'Charms', 
         `<p style='margin-bottom: 1.2em;'>The Charms classroom is a bright, airy space filled with floating objects, sparkling light, and a sense of playful discovery. Here, wands are tools to unlock magic in the world around you, from simple levitation to more intricate transformations. Students learn the incantations, wand movements, and focus necessary to perform charms safely and effectively.</p>
          <p>Practical exercises in Charms include making objects hover, creating light, or enhancing everyday items. Lessons often culminate in creative challenges, allowing students to experiment with spell variations. Mastery of charms sharpens dexterity, concentration, and confidence, making this class a favorite among many budding witches and wizards.</p>`,
-        'assets/charms.jpg'
+        '../assets/charms.jpg'
       )">
-        <img src="assets/charms.png" alt="Charms Classroom">
+        <img src="../assets/charms.png" alt="Charms Classroom">
         <div class="classroom-label">Charms</div>
       </div>
 
@@ -271,9 +271,9 @@ header h1 {
         'Defense Against the Dark Arts', 
         `<p style='margin-bottom: 1.2em;'>Enter the Defense Against the Dark Arts classroom, a place of strategy, skill, and preparation against magical threats. Lessons here teach students to defend themselves from curses, hexes, and dark creatures, blending theory with rigorous hands-on practice. Courage, quick thinking, and adaptability are key, as students face simulated threats under the watchful eye of their instructor.</p>
          <p>Students practice counter-curses, defensive spells, and tactical maneuvers, learning both offensive and protective magic. Exercises range from dueling classmates to warding off enchanted creatures. By the end of the course, students not only understand the dangers of dark magic but are equipped with the skills and confidence to face it in the wizarding world.</p>`,
-        'assets/defense.jpg'
+        '../assets/defense.jpg'
       )">
-        <img src="assets/dada.jpg" alt="Defense Classroom">
+        <img src="../assets/dada.jpg" alt="Defense Classroom">
         <div class="classroom-label">Defense Against the Dark Arts</div>
       </div>
 
@@ -303,7 +303,7 @@ header h1 {
       const modalDesc = document.getElementById('modalDesc');
 
       modalTitle.textContent = title;
-      modalDesc.innerHTML = description; // renders paragraphs correctly
+      modalDesc.innerHTML = description; 
       zoomImg.src = image;
       overlay.classList.add('active');
     }

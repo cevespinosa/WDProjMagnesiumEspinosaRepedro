@@ -64,7 +64,7 @@
       height: 380px;
       background:
         linear-gradient(to bottom right, rgba(95, 60, 30, 0.6), rgba(0,0,0,0.85)),
-        url(assets/greathall.jpg) no-repeat center/cover;
+        url(../assets/greathall.jpg) no-repeat center/cover;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -116,7 +116,7 @@
       position: relative;
       padding: 40px;
       border-radius: 18px;
-      background: url(assets/sortinghatbg.jpg) no-repeat center center;
+      background: url(../assets/sortinghatbg.jpg) no-repeat center center;
       background-size: cover;
     }
 
@@ -149,11 +149,11 @@
 </head>
 <body>
 <nav>
-  <a href="../Home.html">Home</a> 
-  <a href="../Sorting Hat.html"class="active">Sorting Hat</a> 
-  <a href="../spells-charms.html" >Spells and Charms</a>
-  <a href="../Journey Through Hogwarts.html">Journey</a>
-  <a href="../Moments of Magic.html">Moments</a>
+  <a href="Home.html">Home</a>
+<a href="Sorting Hat.html">Sorting Hat</a>
+<a href="spells-charms.html">Spells and Charms</a>
+<a href="Journey Through Hogwarts.html">Journey</a>
+<a href="Moments of Magic.html">Moments</a>
 </nav>
 
 <header id="home">
@@ -173,7 +173,7 @@
   </p>
 
   <div class="sorting-container">
-    <img src="assets/sortinghat.png" alt="Sorting Hat" id="sortingHat">
+    <img src="../assets/sortinghat.png" alt="Sorting Hat" id="sortingHat">
 
     <p id="houseText">Click the button to begin your sorting.</p>
     <button onclick="startSorting()">GET SORTED</button>
@@ -215,10 +215,10 @@ function startSorting() {
 
   setTimeout(() => {
     const houses = [
-      {name: "Gryffindor", banner: "assets/gryffindor.png", desc: "Founded by Godric Gryffindor, Gryffindors are brave, daring, and determined.", class: "gryffindor", color: "#7f0909"},
-      {name: "Slytherin", banner: "assets/slytherin.png", desc: "Founded by Salazar Slytherin, Slytherins are ambitious, cunning, and resourceful.", class: "slytherin", color: "#0d4d2d"},
-      {name: "Hufflepuff", banner: "assets/hufflepuff.png", desc: "Founded by Helga Hufflepuff, Hufflepuffs are loyal, patient, and hardworking.", class: "hufflepuff", color: "#ecb939"},
-      {name: "Ravenclaw", banner: "assets/ravenclaw.png", desc: "Founded by Rowena Ravenclaw, Ravenclaws are wise, witty, and intelligent.", class: "ravenclaw", color: "#0e1a40"}
+      {name: "Gryffindor", banner: "../assets/gryffindor.png", desc: "Founded by Godric Gryffindor, Gryffindors are brave, daring, and determined.", class: "gryffindor", color: "#7f0909"},
+      {name: "Slytherin", banner: "../assets/slytherin.png", desc: "Founded by Salazar Slytherin, Slytherins are ambitious, cunning, and resourceful.", class: "slytherin", color: "#0d4d2d"},
+      {name: "Hufflepuff", banner: "../assets/hufflepuff.png", desc: "Founded by Helga Hufflepuff, Hufflepuffs are loyal, patient, and hardworking.", class: "hufflepuff", color: "#ecb939"},
+      {name: "Ravenclaw", banner: "../assets/ravenclaw.png", desc: "Founded by Rowena Ravenclaw, Ravenclaws are wise, witty, and intelligent.", class: "ravenclaw", color: "#0e1a40"}
     ];
 
     const chosen = houses[Math.floor(Math.random() * houses.length)];
