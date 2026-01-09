@@ -179,6 +179,6 @@ The saved information is displayed and reused on the following pages:
 
 The following wireframes were created in Canva to show the layout, page titles, navigation, and form elements for the three newly proposed webpages:
 
-- [Wizard Profile]<link rel="icon" href="assets/wizard profileo.png" type="image/png">
-- [House Dashboard](../assets/house dashboard.png) 
-- [House Achievements](../assets/house achievements.png) 
+- ![Wizard Profile](https://github.com/cevespinosa/WDProjMagnesiumEspinosaRepedro/blob/1d4142007a46b5bb6f6bc6e0dab0eeec788e08dd/Screenshot%20(333).png)
+- ![House Dashboard](https://github.com/cevespinosa/WDProjMagnesiumEspinosaRepedro/blob/1d4142007a46b5bb6f6bc6e0dab0eeec788e08dd/Screenshot%20(334).png)
+- ![House Achievements](https://github.com/cevespinosa/WDProjMagnesiumEspinosaRepedro/blob/1d4142007a46b5bb6f6bc6e0dab0eeec788e08dd/Screenshot%20(335).png)
