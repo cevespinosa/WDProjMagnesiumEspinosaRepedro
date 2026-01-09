@@ -179,6 +179,6 @@ The saved information is displayed and reused on the following pages:
 
 The following wireframes were created in Canva to show the layout, page titles, navigation, and form elements for the three newly proposed webpages:
 
-- [Sorting Hat Wireframe](assets/sorting-hat-wireframe.png) – collects and saves user data through the HTML form.
-- [Wizard Profile Wireframe](assets/sorting-hat-wireframe.png) – displays saved user information.
-- [House Achievements Wireframe](assets/sorting-hat-wireframe.png) – uses saved house data to show points, badges, and achievements.
+- [Wizard Profile](assets/wizard profile.png) 
+- [House Dashboard](assets/house dashboard.png) 
+- [House Achievements](assets/house achievements.png) 
