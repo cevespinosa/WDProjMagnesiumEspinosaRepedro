@@ -1,102 +1,156 @@
 # Cassie Espinosa & Maxine Repedro | 9-Magnesium
 
-## **1. Website Title** - "Magic Within"
-## **2. Second Title** - "Discover your Hogwarts Story"
-## **3. Logo Description** - 
-### The Magic Within logo features Hogwarts' four houses with a wand and a broom intersecting in the middle of the logo, surrounded by glowing sparks. It uses red, yellow, green, and blue colors to represent the houses and includes the broom and wand to symbolize the lessons taught at Hogwarts.
-## **Logo placement:** 
-### The logo will be displayed on every page and will also appear as the favicon in the browser tab.
-##  **4. Website Description** - 
-### Magic Within is a Harry Potter–inspired website that invites users to explore the enchanting world of Hogwarts. Users can experience interactive activities such as the Sorting Hat quiz, discover famous spells and charms, take a virtual journey through Hogwarts, and relive magical moments from the series.
+## 1. Website Title  
+**Magic Within**
 
-### The goal of Magic Within is to bring the enchantment of the Wizarding World closer to everyone through creativity, interactivity, and discovery. With engaging visuals, thoughtful design, and dynamic features, the website serves as a digital Hogwarts experience for all — from lifelong Harry Potter fans to curious newcomers. Our mission is to let everyone have fun, explore, and fully immerse themselves in the magical world of Harry Potter.
+---
 
-## **5. Website Outline**
-- ### **Home** – A welcoming page with a Hogwarts-themed background, Hogwarts acceptance letter, introduction text, and navigation menu.
+## 2. Second Title  
+**Discover Your Hogwarts Story**
 
-- ### **Sorting Hat** – A JavaScript quiz that sorts users into one of the four Hogwarts houses (Gryffindor, Slytherin, Hufflepuff, Ravenclaw).
+---
 
-- ### **Spells & Charms** – A directory of spells with pronunciations, wand movements, and magical effects.
+## 3. Logo Description  
 
-- ### **Journey Through Hogwarts** – A virtual tour of classrooms such as Potions, Charms, and Defense Against the Dark Arts, each with descriptions and photos.
+The Magic Within logo features the four Hogwarts houses represented through their colors: red, yellow, green, and blue. At the center of the logo, a wand and a broom intersect, symbolizing the magical lessons and activities taught at Hogwarts. Glowing sparks surround the symbol to enhance the magical theme.
 
-- ### **Moments of Magic** – A visual collection of magical moments, quotes, and iconic Harry Potter scenes.
+### Logo Placement
+- Displayed on every page of the website  
+- Used as the favicon in the browser tab
 
-## **6. JavaScript Integration**
-## JavaScript will be incorporated into the following:
+---
 
-- ### **Home Page:** Animated floating candles and smooth scrolling.
+## 4. Website Description  
 
-- ### **Sorting Hat Page:** A quiz system that determines the user’s Hogwarts House and displays the result dynamically.
+**Magic Within** is a Harry Potter–inspired website that invites users to explore the enchanting world of Hogwarts. Visitors can interact with the Sorting Hat, learn about spells and charms, journey through Hogwarts, and relive iconic magical moments from the Wizarding World.
 
-- ### **Spells & Charms:** Interactive spell animations when a user clicks on or hovers over a spell card.
+The goal of Magic Within is to bring the enchantment of the Wizarding World closer to everyone through creativity, interactivity, and discovery. With engaging visuals, thoughtful design, and dynamic JavaScript features, the website serves as a digital Hogwarts experience for all — from lifelong Harry Potter fans to curious newcomers. Our mission is to let users have fun, explore, and fully immerse themselves in the magical world of Harry Potter.
 
-- ### **Journey Through Hogwarts:** Smooth transitions and interactive pop-ups with classroom details.
+---
 
-- ### **Moments of Magic:** Hover effects and modal pop-ups to enlarge or display quotes for each scene.
+## 5. Website Outline  
 
-## **7. Wireframes / Mock-ups**
+### Home  
+A welcoming page with a Hogwarts-themed background, introduction text, and site navigation.
 
-## Below are the initial wireframe descriptions for all proposed webpages. Each layout shows the general structure and navigation flow:
+### Sorting Hat  
+An interactive JavaScript experience where users answer questions and are sorted into one of the four Hogwarts houses. The Sorting Hat Registration Form is located on this page to collect the user’s name and quiz answers.
 
-## **Home Page**
-- ### Header: Logo + navigation bar
-- ### Main Section: Title text (“Discover Your Hogwarts Story”), background image of Hogwarts, and intro paragraph
-- ### Footer: Copyright + social links
+### Spells & Charms  
+A directory of well-known spells with pronunciations, wand movements, and magical effects.
 
-## **Sorting Hat Page**
-- ### Header: Logo + navigation
-- ### Main Section: Quiz area with questions and “Get Sorted” button
-- ### Result Box: Displays Hogwarts House with animation
-- ### Footer: Standard site footer
+### Journey Through Hogwarts  
+A virtual tour of Hogwarts classrooms such as Potions, Charms, and Defense Against the Dark Arts, including descriptions and images.
 
-## **Spells & Charms Page**
-- ### Header: Logo + navigation
-- ### Main Section: Spell cards showing name, pronunciation, and effect
-- ### Interactive Section: JavaScript hover/click animations for spells
-- ### Footer: Standard site footer
+### Moments of Magic  
+A visual collection of magical moments, quotes, and iconic scenes from the Harry Potter series.
 
-## **Journey Through Hogwarts Page**
+### Wizard Profile  
+A personalized page that displays user information collected from the Sorting Hat form.
 
-- ### Header: Logo + navigation
-- ### Main Section: Image gallery of classrooms (Potions, Charms, DADA, etc.)
-- ### Hover Pop-ups: Descriptions and magical glow effects
-- ### Footer: Standard site footer
+---
 
-## **Moments of Magic Page**
-- ### Header: Logo + navigation
-- ### Main Section: Grid of magical moments and quotes
-- ### Interactive Modals: Click to view larger versions or details
-- ### Footer: Standard site footer
+## 6. JavaScript Integration  
 
-## **Navigation Flow:**
-- ### The top navigation bar connects all pages.
-- ### The logo doubles as a link back to the Home page.
-- ### A consistent header and footer maintain the Hogwarts theme across the entire site.
+JavaScript is used in the following areas:
 
-## **8. Navigation Design** 
-## All web pages will share a consistent, responsive top navigation bar with links to:
+- **Home Page:** Floating candle animations and smooth scrolling effects  
+- **Sorting Hat:** Logic for answering questions, calculating results, and saving user data  
+- **Spells & Charms:** Interactive spell animations on hover or click  
+- **Journey Through Hogwarts:** Transitions and interactive classroom descriptions  
+- **Moments of Magic:** Image hover effects and modal pop-ups  
+- **Wizard Profile:** Retrieving and displaying saved user data  
 
-- ### Home
-- ### Sorting Hat
-- ### Spells & Charms
-- ### Journey Through Hogwarts
-- ### Moments of Magic
-## **Navigation Features:**
+---
 
- ### 1. Fixed at the top for easy access.
- ### 2. Hover effects to highlight active links.
- ### 3. Collapsible hamburger menu for mobile responsiveness.
+## 7. Navigation Design  
 
-## **9. Footer Design**
-## Each page will include a footer containing:
+All web pages share a consistent and responsive top navigation bar with links to:
 
-- ### Copyright Notice: © 2025 Magic Within. All rights reserved.
+- Home  
+- Sorting Hat  
+- Spells & Charms  
+- Journey Through Hogwarts  
+- Moments of Magic  
+- Wizard Profile  
 
-- ### Sources/Citations: Credits for all images, quotes, and references used throughout the website.
+### Navigation Features
+- Fixed at the top of every page for easy access  
+- Hover effects to highlight active links  
+- Collapsible hamburger menu for mobile responsiveness  
 
-- ### Social Media Links: Interactive icons for Facebook, Instagram, and Twitter using image sprites to reduce loading time.
+---
 
-- ### The footer will have a dark gradient background with gold text for a magical aesthetic.
+## 8. Footer Design  
 
+Each page includes a footer containing:
 
+- **Copyright Notice:** © 2025 Magic Within. All rights reserved.  
+- **Sources and Citations:** References for images, quotes, and content  
+- **Social Media Links:** Facebook, Instagram, and Twitter using image sprites  
+
+The footer features a dark gradient background with gold text to maintain a magical aesthetic.
+
+---
+
+## 9. Wireframes / Mock-ups  
+
+### Home Page
+- Header: Logo and navigation bar  
+- Main Section: Website title (“Discover Your Hogwarts Story”), Hogwarts background image, and introduction text  
+- Footer: Copyright and social links  
+
+### Sorting Hat Page
+- Header: Logo and navigation bar  
+- Main Section: Sorting Hat quiz with registration form  
+- Submit Button: Displays the user’s Hogwarts house  
+- Footer: Standard footer  
+
+### Spells & Charms Page
+- Header: Logo and navigation bar  
+- Main Section: Grid of spell cards showing name, pronunciation, and effects  
+- JavaScript-based hover or click animations  
+- Footer: Standard footer  
+
+### Journey Through Hogwarts Page
+- Header: Logo and navigation bar  
+- Main Section: Image gallery of classrooms with hover pop-ups and descriptions  
+- Footer: Standard footer  
+
+### Moments of Magic Page
+- Header: Logo and navigation bar  
+- Main Section: Grid of magical moments and quotes  
+- Clickable items open modal pop-ups for larger views  
+- Footer: Standard footer  
+
+### Wizard Profile Page
+- Header: Logo and navigation bar  
+- Main Section: Displays the user’s name and Hogwarts house from the Sorting Hat form  
+- Footer: Standard footer  
+
+### Navigation Flow
+- The top navigation bar links all pages  
+- The logo links back to the Home page  
+- Consistent header and footer across all pages  
+- Hamburger menu for mobile responsiveness  
+
+---
+
+## 10. HTML Form Design and Narrative  
+
+Magic Within includes a **Sorting Hat Registration Form** on the Sorting Hat page. Users enter their name and answer Sorting Hat questions. After submission, the user’s name and house result are saved on their device and used to personalize the experience across the website.
+
+### Form Elements Used
+- Text input for user name  
+- Radio buttons or quiz options for Sorting Hat questions  
+- Submit button to save results  
+
+---
+
+## 11. Webpages Using Form Data  
+
+1. **Sorting Hat Page** – Collects user data and displays Hogwarts house results  
+2. **Wizard Profile Page** – Displays the user’s name and assigned house  
+3. **House Dashboard Page** – Uses saved house data to show personalized greetings, messages, or recommended content  
+
+---
