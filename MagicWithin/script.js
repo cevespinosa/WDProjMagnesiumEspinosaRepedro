@@ -5,14 +5,24 @@ window.onload = function() {
     const retrieved = JSON.parse(savedData);
     const text = document.getElementById("houseText");
     
-    text.textContent = `The Sorting Hat remembers: You are a ${retrieved.house}!`;
+    text.textContent = `Welcome back, ${retrieved.name}! The Hat placed you in ${retrieved.house}.`;
     
     const banner = document.querySelector(`.banner.${retrieved.house.toLowerCase()}`);
     if (banner) banner.classList.add("show");
+    
+    const form = document.getElementById("user-form");
+    if (form) form.style.display = "none";
   }
 };
 
 function startSorting() {
+  const nameInput = document.getElementById("playerName").value;
+  
+  if (!nameInput) {
+    alert("Please enter your name first!");
+    return;
+  }
+
   const hat = document.getElementById("sortingHat");
   const text = document.getElementById("houseText");
   const banners = document.querySelectorAll(".banner");
@@ -26,7 +36,7 @@ function startSorting() {
     const chosen = houses[Math.floor(Math.random() * houses.length)];
 
     hat.classList.remove("thinking");
-    text.textContent = `Better be... ${chosen.toUpperCase()}!`;
+    text.textContent = `${nameInput.toUpperCase()}, you belong in... ${chosen.toUpperCase()}!`;
 
     banners.forEach(banner => {
       if (banner.classList.contains(chosen)) {
@@ -35,6 +45,7 @@ function startSorting() {
     });
 
     const sortingData = {
+      name: nameInput,
       house: chosen.charAt(0).toUpperCase() + chosen.slice(1),
       timestamp: new Date().toLocaleString()
     };
