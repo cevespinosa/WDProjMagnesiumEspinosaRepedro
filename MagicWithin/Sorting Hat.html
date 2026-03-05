@@ -17,7 +17,6 @@
       padding-bottom: 50px;
     }
 
-    /* Navigation */
     nav {
       position: sticky;
       top: 0;
@@ -40,7 +39,6 @@
       justify-content: center;
     }
 
-    /* Form Container */
     .form-container {
       max-width: 500px;
       margin: 40px auto;
@@ -130,15 +128,12 @@ function processSorting() {
         return;
     }
 
-    // Sorting Logic
     const house = trait.value;
 
-    // Save to LocalStorage
     localStorage.setItem("storedName", name);
     localStorage.setItem("storedHouse", house);
     localStorage.setItem("storedPet", pet);
 
-    // Visual feedback
     resultDiv.innerHTML = "Hmm... let me see...";
     
     setTimeout(() => {
