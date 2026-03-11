@@ -174,14 +174,12 @@
       hat.classList.remove("thinking");
       const finalHouse = trait.value;
       
-      // Save data for processing on the Home page
       localStorage.setItem("wizardName", name);
       localStorage.setItem("wizardHouse", finalHouse);
 
       houseText.textContent = finalHouse.toUpperCase() + "!";
       message.innerHTML = `Congratulations, ${name}! You have been sorted into ${finalHouse}.`;
       
-      // "Processing" the data: Change the color of the message based on the house
       if(finalHouse === "Gryffindor") houseText.style.color = "#ff4d4d";
       if(finalHouse === "Slytherin") houseText.style.color = "#2ecc71";
       if(finalHouse === "Ravenclaw") houseText.style.color = "#3498db";
