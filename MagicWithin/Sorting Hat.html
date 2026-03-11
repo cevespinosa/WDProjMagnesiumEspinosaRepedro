@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Magic Within | Sorting Hat</title>
+  <meta name="author" content="Espinosa, Cassandra & Repedro, Maxine">
   <link rel="icon" href="../assets/logo.jpg" type="image/png">
+  <title>Magic Within | The Sorting Hat</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
   
   <style>
@@ -13,8 +15,9 @@
       background: #18160d;
       color: #f5e6b3;
       font-family: 'Montserrat', sans-serif;
+      line-height: 1.7;
       text-align: center;
-      padding-bottom: 50px;
+      overflow-x: hidden;
     }
 
     nav {
@@ -27,45 +30,73 @@
       z-index: 1000;
       box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
-    nav a { margin: 0 10px; color: #f5e6b3; text-decoration: none; font-weight: 500; }
-    nav a:hover, nav a.active { color: gold; }
+    nav a {
+      margin: 0 18px;
+      color: #f5e6b3;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+    }
+    nav a:hover { color: gold; }
 
     header {
-      height: 300px;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url(../assets/greathall.jpg) center/cover;
+      height: 250px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(24,22,13,1)), url(../assets/greathall.jpg) no-repeat center/cover;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
     }
 
-    .form-container {
-      max-width: 500px;
-      margin: 40px auto;
-      padding: 30px;
-      background: rgba(45, 31, 19, 0.9);
+    h1 { font-family: 'Cinzel', serif; font-size: 3rem; color: gold; text-shadow: 2px 2px 10px black; }
+
+    .sorting-container {
+      max-width: 600px;
+      margin: 20px auto 50px;
+      padding: 40px;
+      background: rgba(38, 24, 20, 0.95);
       border: 3px solid #7f4e1a;
-      border-radius: 15px;
-      text-align: left;
-    }
-    .form-group { margin-bottom: 20px; }
-    label { display: block; margin-bottom: 8px; font-weight: bold; }
-    input[type="text"], select {
-      width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #7f4e1a;
-      background: #18160d; color: #f5e6b3; box-sizing: border-box;
-    }
-    button {
-      width: 100%; padding: 15px; background: gold; color: #18160d;
-      font-family: 'Cinzel', serif; font-weight: bold; border: none;
-      border-radius: 5px; cursor: pointer; font-size: 1.1rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
     }
 
-    #sortingResult {
-      margin-top: 20px;
-      font-size: 1.5rem;
-      font-family: 'Cinzel', serif;
-      color: gold;
+    .form-group { text-align: left; margin-bottom: 20px; }
+    label { display: block; margin-bottom: 8px; font-weight: bold; color: gold; }
+    
+    input[type="text"], select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #7f4e1a;
+      background: #18160d;
+      color: #f5e6b3;
     }
+
+    .radio-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+    
+    button {
+      margin-top: 20px;
+      padding: 15px 40px;
+      background: gold;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Cinzel', serif;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #sortingResult { display: none; margin-top: 30px; }
+    #houseText { font-family: 'Cinzel', serif; font-size: 2.2rem; color: gold; margin: 20px 0; }
+    
+    .hat-img { width: 220px; margin-bottom: 20px; }
+    .thinking { animation: shake 0.5s infinite; }
+
+    @keyframes shake {
+      0% { transform: rotate(0deg); }
+      50% { transform: rotate(5deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    footer { background: #000; padding: 20px; color: #7f4e1a; margin-top: 50px; }
   </style>
 </head>
 
@@ -73,73 +104,91 @@
 
 <nav>
   <a href="Home.html">Home</a>
-  <a href="Sorting Hat.html" class="active">Sorting Hat</a>
-  <a href="spells-charms.html">Spells</a>
+  <a href="Sorting Hat.html" style="color:gold;">Sorting Hat</a>
+  <a href="spells-charms.html">Spells and Charms</a>
   <a href="Journey Through Hogwarts.html">Journey</a>
   <a href="Moments of Magic.html">Moments</a>
-  <a href="wizard-profile.html">Profile</a>
-  <a href="house-dashboard.html">Dashboard</a>
-  <a href="house-achievements.html">Achievements</a>
 </nav>
 
 <header>
   <h1>The Sorting Hat</h1>
 </header>
 
-<div class="form-container">
-  <form id="sortingForm">
-    <div class="form-group">
-      <label for="wizardName">What is your name, young student?</label>
-      <input type="text" id="wizardName" placeholder="Enter your full name..." required>
+<main>
+  <div class="sorting-container">
+    <div id="setupForm">
+      <h2 style="font-family: 'Cinzel';">Student Registration</h2>
+      <form id="hatForm">
+        <div class="form-group">
+          <label for="userName">Wizard/Witch Name:</label>
+          <input type="text" id="userName" placeholder="Your name..." required>
+        </div>
+
+        <div class="form-group">
+          <label>What do you value most?</label>
+          <div class="radio-group">
+            <span><input type="radio" name="trait" value="Gryffindor" id="r1" required> Bravery</span>
+            <span><input type="radio" name="trait" value="Slytherin" id="r2"> Ambition</span>
+            <span><input type="radio" name="trait" value="Ravenclaw" id="r3"> Wisdom</span>
+            <span><input type="radio" name="trait" value="Hufflepuff" id="r4"> Loyalty</span>
+          </div>
+        </div>
+
+        <button type="button" onclick="startSorting()">Sort Me!</button>
+      </form>
     </div>
 
-    <div class="form-group">
-      <p>Which trait defines you most?</p>
-      <input type="radio" id="bravery" name="trait" value="Gryffindor" required> <label style="display:inline;" for="bravery">Bravery</label><br>
-      <input type="radio" id="ambition" name="trait" value="Slytherin"> <label style="display:inline;" for="ambition">Ambition</label><br>
-      <input type="radio" id="wisdom" name="trait" value="Ravenclaw"> <label style="display:inline;" for="wisdom">Wisdom</label><br>
-      <input type="radio" id="loyalty" name="trait" value="Hufflepuff"> <label style="display:inline;" for="loyalty">Loyalty</label>
+    <div id="sortingResult">
+      <img src="https://contentful.harrypotter.com/usf1vwtuqyxm/6pCsh81OunM3rR7r8S0Cj/669f6e7c7526955a805bc938933b9b47/sorting-hat-is-honest-fact-file-web-landscape" alt="Sorting Hat" class="hat-img" id="hatIcon">
+      <div id="houseText">Thinking...</div>
+      <div id="finalMessage" style="margin-bottom: 30px; font-weight: 600;"></div>
+      
+      <button onclick="window.location.href='Home.html'">Return to Hogwarts</button>
     </div>
+  </div>
+</main>
 
-    <div class="form-group">
-      <label for="pet">Choose your companion:</label>
-      <select id="pet">
-        <option value="Owl">Owl</option>
-        <option value="Toad">Toad</option>
-        <option value="Cat">Cat</option>
-      </select>
-    </div>
-
-    <button type="button" onclick="processSorting()">Sort Me!</button>
-  </form>
-
-  <div id="sortingResult"></div>
-</div>
+<footer>
+  © 2025 Magic Within | Espinosa & Repedro
+</footer>
 
 <script>
-function processSorting() {
-    const name = document.getElementById("wizardName").value;
+  function startSorting() {
+    const name = document.getElementById("userName").value;
     const trait = document.querySelector('input[name="trait"]:checked');
-    const pet = document.getElementById("pet").value;
-    const resultDiv = document.getElementById("sortingResult");
-
+    
     if (!name || !trait) {
-        alert("Please enter your name and choose a trait!");
-        return;
+      alert("Please enter your name and choose a trait!");
+      return;
     }
 
-    const house = trait.value;
+    document.getElementById("setupForm").style.display = "none";
+    document.getElementById("sortingResult").style.display = "block";
+    const hat = document.getElementById("hatIcon");
+    const houseText = document.getElementById("houseText");
+    const message = document.getElementById("finalMessage");
 
-    localStorage.setItem("storedName", name);
-    localStorage.setItem("storedHouse", house);
-    localStorage.setItem("storedPet", pet);
+    hat.classList.add("thinking");
 
-    resultDiv.innerHTML = "Hmm... let me see...";
-    
     setTimeout(() => {
-        resultDiv.innerHTML = `Congratulations, ${name}! The Hat has placed you in... <br><span style="font-size:2rem;">${house}!</span>`;
-    }, 2000);
-}
+      hat.classList.remove("thinking");
+      const finalHouse = trait.value;
+      
+      // Save data for processing on the Home page
+      localStorage.setItem("wizardName", name);
+      localStorage.setItem("wizardHouse", finalHouse);
+
+      houseText.textContent = finalHouse.toUpperCase() + "!";
+      message.innerHTML = `Congratulations, ${name}! You have been sorted into ${finalHouse}.`;
+      
+      // "Processing" the data: Change the color of the message based on the house
+      if(finalHouse === "Gryffindor") houseText.style.color = "#ff4d4d";
+      if(finalHouse === "Slytherin") houseText.style.color = "#2ecc71";
+      if(finalHouse === "Ravenclaw") houseText.style.color = "#3498db";
+      if(finalHouse === "Hufflepuff") houseText.style.color = "#f1c40f";
+      
+    }, 2500);
+  }
 </script>
 
 </body>
