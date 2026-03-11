@@ -180,6 +180,21 @@
 <footer>
   © 2025 Magic Within | Espinosa & Repedro
 </footer>
+<script>
+window.onload = function() {
+  const name = localStorage.getItem("wizardName");
+  const house = localStorage.getItem("wizardHouse");
 
+  if (name && house) {
+    const title = document.querySelector("h1");
+    title.textContent = "Welcome, " + name + " of " + house + "!";
+    
+    if(house === "Gryffindor") title.style.color = "#ff4d4d";
+    if(house === "Slytherin") title.style.color = "#2ecc71";
+    if(house === "Ravenclaw") title.style.color = "#3498db";
+    if(house === "Hufflepuff") title.style.color = "#f1c40f";
+  }
+};
+</script>
 </body>
 </html>
