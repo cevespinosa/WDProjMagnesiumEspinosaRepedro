@@ -1,5 +1,5 @@
 # Cassie Espinosa & Maxine Repedro | 9-Magnesium
-
+###FINAL MODIFICATION PROPOSAL###
 ## 1. Website Title
 **Magic Within**
 

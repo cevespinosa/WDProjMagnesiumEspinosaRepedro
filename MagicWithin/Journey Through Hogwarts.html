@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Journey Through Hogwarts</title>
+  <title>Journey Through Hogwarts | Magic Within</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
   <link rel="icon" href="../assets/logo.jpg" type="image/png">
   <style>
@@ -16,7 +16,6 @@
       overflow-x: hidden;
     }
 
-    
     nav {
       position: sticky;
       top: 0;
@@ -27,6 +26,7 @@
       z-index: 1000;
       box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
+
     nav a {
       margin: 0 18px;
       color: #f5e6b3;
@@ -34,6 +34,7 @@
       font-weight: 500;
       position: relative;
     }
+
     nav a::after {
       content: "";
       position: absolute;
@@ -41,17 +42,19 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: gold;
+      background: #d7b56d;
       transition: width 0.3s;
     }
+
     nav a:hover::after,
     nav a.active::after { width: 100%; }
+
     nav a:hover,
-    nav a.active { color: gold; }
+    nav a.active { color: #d7b56d; }
 
     header {
       height: 360px;
-      background: linear-gradient(to bottom right, rgba(95, 60, 30, 0.6), rgba(0,0,0,0.85)),
+      background: linear-gradient(to bottom right, rgba(0,0,0,0.4), rgba(0,0,0,0.85)),
                   url('../assets/class.jpg') no-repeat center/cover;
       display: flex;
       flex-direction: column;
@@ -59,32 +62,39 @@
       justify-content: center;
       text-align: center;
     }
+
     header h1 {
       font-family: 'Cinzel', serif;
       font-size: 2.6rem;
       margin-bottom: 10px;
+      color: #d7b56d;
+      animation: fadeUp 1.2s ease forwards;
     }
+
     header p {
       max-width: 700px;
       font-size: 1.1rem;
       color: rgb(244, 240, 222);
+      padding: 0 20px;
     }
 
     main {
       max-width: 1100px;
       margin: 60px auto;
       padding: 40px;
-      background: #1c0a0a58;
+      background: #1c0a0ae6;
       border-radius: 18px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      border: 1px solid rgba(215, 181, 109, 0.2);
     }
 
     h2 {
       font-family: 'Cinzel', serif;
-      color: rgb(245, 237, 189);
-      border-left: 6px solid rgb(245, 237, 189);
+      color: #d7b56d;
+      border-left: 6px solid #d7b56d;
       padding-left: 14px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      text-align: left;
     }
 
     .classroom-grid {
@@ -99,41 +109,47 @@
       cursor: pointer;
       overflow: hidden;
       border-radius: 18px;
+      border: 1px solid rgba(215, 181, 109, 0.2);
       box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-      transform: scale(1);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
+
     .classroom-card:hover {
       transform: scale(1.05);
-      box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+      box-shadow: 0 15px 40px rgba(215, 181, 109, 0.3);
+      border-color: #d7b56d;
     }
+
     .classroom-card img {
       width: 100%;
       height: 260px;
       object-fit: cover;
-      filter: brightness(0.8);
-      transition: transform 0.6s ease;
+      filter: brightness(0.7);
+      transition: transform 0.6s ease, filter 0.4s;
     }
+
     .classroom-card:hover img {
       transform: scale(1.1);
+      filter: brightness(1);
     }
+
     .classroom-label {
       position: absolute;
       bottom: 0;
       width: 100%;
-      padding: 16px;
+      padding: 20px 0;
       font-family: 'Cinzel', serif;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       text-align: center;
-      color: transparent;
-      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      color: #f5e6b3;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
       transition: color 0.5s;
     }
+
     .classroom-card:hover .classroom-label {
-      color: gold;
+      color: #d7b56d;
     }
 
-   
     .zoom-overlay {
       position: fixed;
       inset: 0;
@@ -145,43 +161,64 @@
       pointer-events: none;
       transition: opacity 0.5s ease;
       z-index: 2000;
-      flex-direction: column;
       padding: 20px;
     }
+
     .zoom-overlay.active {
       opacity: 1;
       pointer-events: auto;
     }
+
     .zoom-window {
-      width: 80%;
-      max-width: 900px;
+      width: 90%;
+      max-width: 850px;
       background: #1c0a0a;
       border-radius: 18px;
-      box-shadow: 0 0 50px gold;
+      border: 2px solid #d7b56d;
+      box-shadow: 0 0 50px rgba(215, 181, 109, 0.3);
       overflow-y: auto;
-      max-height: 80%;
-      padding: 20px;
+      max-height: 85vh;
+      padding: 35px;
       text-align: center;
-      transform: scale(0.5);
+      transform: scale(0.7);
       transition: transform 0.5s ease;
     }
+
     .zoom-overlay.active .zoom-window {
       transform: scale(1);
     }
+
     .zoom-window img {
       width: 100%;
+      height: 350px;
+      object-fit: cover;
       border-radius: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      border: 1px solid rgba(215, 181, 109, 0.2);
     }
+
+    #modalDesc p {
+      color: rgb(244, 240, 222);
+      text-align: left;
+      font-size: 1.05rem;
+    }
+
     .close-btn {
-      margin-top: 20px;
-      padding: 10px 20px;
+      margin-top: 25px;
+      padding: 12px 35px;
       font-family: 'Cinzel', serif;
       font-size: 1rem;
-      background: gold;
+      background: #d7b56d;
+      color: #18160d;
       border: none;
       border-radius: 8px;
       cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .close-btn:hover {
+      background: #f5e6b3;
     }
 
     footer {
@@ -193,126 +230,110 @@
       margin-top: 60px;
     }
 
-    
-    .zoom-window::-webkit-scrollbar {
-      width: 8px;
-    }
-    .zoom-window::-webkit-scrollbar-thumb {
-      background-color: gold;
-      border-radius: 4px;
-    }
     @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-header h1 {
-  font-family: 'Cinzel', serif;
-  font-size: 2.6rem;
-  margin-bottom: 10px;
-  animation: fadeUp 1.2s ease forwards; 
-}
-
+    .zoom-window::-webkit-scrollbar { width: 8px; }
+    .zoom-window::-webkit-scrollbar-thumb { background-color: #d7b56d; border-radius: 4px; }
   </style>
 </head>
 
 <body>
 
- 
-  <nav>
+<nav>
   <a href="Home.html">Home</a>
-<a href="Sorting Hat.html">Sorting Hat</a>
-<a href="spells-charms.html">Spells and Charms</a>
-<a href="Journey Through Hogwarts.html"class="active">Journey</a>
-<a href="Moments of Magic.html">Moments</a>
+  <a href="Sorting Hat.html">Sorting Hat</a>
+  <a href="spells-charms.html">Spells</a>
+  <a href="Journey Through Hogwarts.html" class="active">Journey</a>
+  <a href="Moments of Magic.html">Moments</a>
+  <a href="Wizard Profile.html">Profile</a>
+  <a href="House Dashboard.html">Dashboard</a>
+  <a href="House Achievements.html">Achievements</a>
 </nav>
 
-  <header id="home">
-    <h1>Journey Through Hogwarts</h1>
-    <p>Explore the legendary classrooms of Hogwarts, where magic is practiced, mastered, and brought to life.</p>
-  </header>
+<header>
+  <h1>Journey Through Hogwarts</h1>
+  <p>Explore the legendary classrooms of Hogwarts, where magic is practiced, mastered, and brought to life.</p>
+</header>
 
-  <main>
-    <p style="text-align:center; max-width:800px; margin:auto; color:rgb(244,240,222);">
-      Click on a classroom window to step inside and experience the magic within.
-    </p>
+<main>
+  <p style="text-align:center; max-width:800px; margin:0 auto 40px; color:rgb(244,240,222); font-size: 1.1rem;">
+    Click on a classroom window to step inside and experience the magic within.
+  </p>
 
-    <div class="classroom-grid">
-
-      
-      <div class="classroom-card" onclick="openClassroom(
-        'Potions', 
-        `<p style='margin-bottom: 1.2em;'>Step into the dimly lit Potions classroom, where cauldrons bubble and ingredients from across the wizarding world await your careful touch. Here, students learn to combine magical herbs, liquids, and powders to brew everything from simple healing potions to complex elixirs capable of extraordinary effects. Precision, patience, and a steady hand are essential as even a small mistake can create unexpected results!</p>
-         <p>In Potions class, you’ll practice iconic recipes like the Polyjuice Potion, Felix Felicis, and the basic antidotes for common magical mishaps. Each lesson emphasizes both theory and hands-on practice, teaching you not only the magical formula but the reasoning behind every ingredient. Success here is measured in skill, knowledge, and sometimes a little luck.</p>`,
-      )">
-        <img src="../assets/potions.jpg" alt="Potions Classroom">
-        <div class="classroom-label">Potions</div>
-      </div>
-
-      
-      <div class="classroom-card" onclick="openClassroom(
-        'Charms', 
-        `<p style='margin-bottom: 1.2em;'>The Charms classroom is a bright, airy space filled with floating objects, sparkling light, and a sense of playful discovery. Here, wands are tools to unlock magic in the world around you, from simple levitation to more intricate transformations. Students learn the incantations, wand movements, and focus necessary to perform charms safely and effectively.</p>
-         <p>Practical exercises in Charms include making objects hover, creating light, or enhancing everyday items. Lessons often culminate in creative challenges, allowing students to experiment with spell variations. Mastery of charms sharpens dexterity, concentration, and confidence, making this class a favorite among many budding witches and wizards.</p>`,
-        '../assets/charms.jpg'
-      )">
-        <img src="../assets/charms.png" alt="Charms Classroom">
-        <div class="classroom-label">Charms</div>
-      </div>
-
-
-      <div class="classroom-card" onclick="openClassroom(
-        'Defense Against the Dark Arts', 
-        `<p style='margin-bottom: 1.2em;'>Enter the Defense Against the Dark Arts classroom, a place of strategy, skill, and preparation against magical threats. Lessons here teach students to defend themselves from curses, hexes, and dark creatures, blending theory with rigorous hands-on practice. Courage, quick thinking, and adaptability are key, as students face simulated threats under the watchful eye of their instructor.</p>
-         <p>Students practice counter-curses, defensive spells, and tactical maneuvers, learning both offensive and protective magic. Exercises range from dueling classmates to warding off enchanted creatures. By the end of the course, students not only understand the dangers of dark magic but are equipped with the skills and confidence to face it in the wizarding world.</p>`,
-        '../assets/defense.jpg'
-      )">
-        <img src="../assets/dada.jpg" alt="Defense Classroom">
-        <div class="classroom-label">Defense Against the Dark Arts</div>
-      </div>
-
+  <div class="classroom-grid">
+    <div class="classroom-card" onclick="openClassroom(
+      'Potions', 
+      `<p>Step into the dimly lit Potions classroom, where cauldrons bubble and ingredients from across the wizarding world await your careful touch. Here, students learn to combine magical herbs, liquids, and powders to brew everything from simple healing potions to complex elixirs capable of extraordinary effects.</p>
+       <p>Precision, patience, and a steady hand are essential as even a small mistake can create unexpected results! In Potions class, you’ll practice iconic recipes like the Polyjuice Potion and Felix Felicis.</p>`,
+      '../assets/potions.jpg'
+    )">
+      <img src="../assets/potions.jpg" alt="Potions Classroom">
+      <div class="classroom-label">Potions</div>
     </div>
-  </main>
 
-  
-  <div id="zoomOverlay" class="zoom-overlay">
-    <div class="zoom-window">
-      <h2 id="modalTitle"></h2>
-      <img id="zoomImage" src="" alt="">
-      <div id="modalDesc"></div>
-      <button class="close-btn" onclick="closeClassroom()">Close</button>
+    <div class="classroom-card" onclick="openClassroom(
+      'Charms', 
+      `<p>The Charms classroom is a bright, airy space filled with floating objects, sparkling light, and a sense of playful discovery. Here, wands are tools to unlock magic in the world around you, from simple levitation to more intricate transformations.</p>
+       <p>Students learn the incantations, wand movements, and focus necessary to perform charms safely and effectively. Mastery of charms sharpens dexterity, concentration, and confidence.</p>`,
+      '../assets/charms.png'
+    )">
+      <img src="../assets/charms.png" alt="Charms Classroom">
+      <div class="classroom-label">Charms</div>
+    </div>
+
+    <div class="classroom-card" onclick="openClassroom(
+      'Defense Against the Dark Arts', 
+      `<p>Enter the Defense Against the Dark Arts classroom, a place of strategy, skill, and preparation against magical threats. Lessons here teach students to defend themselves from curses, hexes, and dark creatures.</p>
+       <p>Courage, quick thinking, and adaptability are key, as students face simulated threats under the watchful eye of their instructor. By the end of the course, students are equipped with the skills and confidence to face dark magic.</p>`,
+      '../assets/dada.jpg'
+    )">
+      <img src="../assets/dada.jpg" alt="Defense Classroom">
+      <div class="classroom-label">Defense Against the Dark Arts</div>
     </div>
   </div>
+</main>
 
-  <footer>
-    © 2025 Magic Within. All rights reserved.<br>
-    Harry Potter is a trademark of Warner Bros. Educational use only.
-      <a href="#" onclick="localStorage.clear(); location.reload();" style="color: gray; font-size: 0.8rem;">Reset Sorting Data</a>
+<div id="zoomOverlay" class="zoom-overlay">
+  <div class="zoom-window">
+    <h2 id="modalTitle"></h2>
+    <img id="zoomImage" src="" alt="Classroom View">
+    <div id="modalDesc"></div>
+    <button class="close-btn" onclick="closeClassroom()">Close</button>
+  </div>
+</div>
 
-  </footer>
+<footer>
+  © 2025 Magic Within | Espinosa & Repedro <br>
+  <a href="#" onclick="localStorage.clear(); location.reload();" style="color: gray; font-size: 0.8rem; text-decoration: none;">Reset Sorting Data</a>
+</footer>
 
-  <script>
-    function openClassroom(title, description, image) {
-      const overlay = document.getElementById('zoomOverlay');
-      const zoomImg = document.getElementById('zoomImage');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalDesc = document.getElementById('modalDesc');
+<script>
+  function openClassroom(title, description, image) {
+    const overlay = document.getElementById('zoomOverlay');
+    const zoomImg = document.getElementById('zoomImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
 
-      modalTitle.textContent = title;
-      modalDesc.innerHTML = description; 
-      zoomImg.src = image;
-      overlay.classList.add('active');
+    modalTitle.textContent = title;
+    modalDesc.innerHTML = description; 
+    zoomImg.src = image; 
+    overlay.classList.add('active');
+  }
+
+  function closeClassroom() {
+    document.getElementById('zoomOverlay').classList.remove('active');
+  }
+
+  // Close modal when clicking outside the window
+  window.onclick = function(event) {
+    const overlay = document.getElementById('zoomOverlay');
+    if (event.target == overlay) {
+      closeClassroom();
     }
-
-    function closeClassroom() {
-      document.getElementById('zoomOverlay').classList.remove('active');
-    }
-  </script>
+  }
+</script>
 </body>
 </html>

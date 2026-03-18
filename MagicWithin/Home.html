@@ -12,7 +12,6 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
   
-
   <style>
     html { scroll-behavior: smooth; }
 
@@ -52,7 +51,7 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: gold;
+      background: #d7b56d;
       transition: width 0.3s;
     }
 
@@ -60,12 +59,12 @@
     nav a.active::after { width: 100%; }
 
     nav a:hover,
-    nav a.active { color: gold; }
+    nav a.active { color: #d7b56d; }
 
     header {
       height: 380px;
       background:
-        linear-gradient(to bottom right, rgba(95, 60, 30, 0.6), rgba(0,0,0,0.85)),
+        linear-gradient(to bottom right, rgba(95, 60, 30, 0.4), rgba(0,0,0,0.8)),
         url(../assets/hogwarts.jpg) no-repeat center/cover;
       display: flex;
       flex-direction: column;
@@ -104,16 +103,17 @@
       max-width: 900px;
       margin: 50px auto;
       padding: 40px;
-      background: #1c0a0a58;
+      background: #1c0a0ae6; 
       border-radius: 18px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      border: 1px solid rgba(215, 181, 109, 0.2);
       animation: fadeIn 1.2s ease;
     }
 
     h2 {
       font-family: 'Cinzel', serif;
-      color: rgb(245, 237, 189);
-      border-left: 6px solid rgb(245, 237, 189);
+      color: #d7b56d;
+      border-left: 6px solid #d7b56d;
       padding-left: 14px;
       margin-top: 2.5rem;
       text-align: left;
@@ -132,6 +132,7 @@
       padding: 20px;
       color: rgb(220, 210, 156);
       font-size: 0.9rem;
+      margin-top: 60px;
     }
 
     @keyframes fadeIn {
@@ -149,11 +150,14 @@
 <body>
 
 <nav>
-  <a href="Home.html"class="active">Home</a>
-<a href="Sorting Hat.html">Sorting Hat</a>
-<a href="spells-charms.html">Spells and Charms</a>
-<a href="Journey Through Hogwarts.html">Journey</a>
-<a href="Moments of Magic.html">Moments</a>
+  <a href="Home.html" class="active">Home</a>
+  <a href="Sorting Hat.html">Sorting Hat</a>
+  <a href="spells-charms.html">Spells</a>
+  <a href="Journey Through Hogwarts.html">Journey</a>
+  <a href="Moments of Magic.html">Moments</a>
+  <a href="Wizard Profile.html">Profile</a>
+  <a href="House Dashboard.html">Dashboard</a>
+  <a href="House Achievements.html">Achievements</a>
 </nav>
 
 <header id="home">
@@ -179,8 +183,9 @@
 
 <footer>
   © 2025 Magic Within | Espinosa & Repedro
-  <a href="#" onclick="localStorage.clear(); location.reload();" style="color: gray; font-size: 0.8rem;">Reset Sorting Data</a>
+  <a href="#" onclick="localStorage.clear(); location.reload();" style="color: gray; font-size: 0.8rem; margin-left: 10px; text-decoration: none;">Reset Sorting Data</a>
 </footer>
+
 <script>
 window.onload = function() {
   const name = localStorage.getItem("wizardName");
@@ -193,7 +198,7 @@ window.onload = function() {
     if(house === "Gryffindor") title.style.color = "#ff4d4d";
     if(house === "Slytherin") title.style.color = "#2ecc71";
     if(house === "Ravenclaw") title.style.color = "#3498db";
-    if(house === "Hufflepuff") title.style.color = "#f1c40f";
+    if(house === "Hufflepuff") title.style.color = "#d7b56d";
   }
 };
 </script>

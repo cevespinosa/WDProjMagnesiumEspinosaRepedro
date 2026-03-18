@@ -18,6 +18,9 @@
       line-height: 1.7;
       text-align: center;
       overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     nav {
@@ -30,6 +33,7 @@
       z-index: 1000;
       box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
+
     nav a {
       margin: 0 18px;
       color: #f5e6b3;
@@ -37,7 +41,23 @@
       font-weight: 500;
       position: relative;
     }
-    nav a:hover { color: gold; }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #d7b56d;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after,
+    nav a.active::after { width: 100%; }
+
+    nav a:hover,
+    nav a.active { color: #d7b56d; }
 
     header {
       height: 250px;
@@ -47,56 +67,95 @@
       justify-content: center;
     }
 
-    h1 { font-family: 'Cinzel', serif; font-size: 3rem; color: gold; text-shadow: 2px 2px 10px black; }
+    h1 { font-family: 'Cinzel', serif; font-size: 3rem; color: #d7b56d; text-shadow: 2px 2px 10px black; margin: 0; }
 
-    .sorting-container {
-      max-width: 600px;
-      margin: 20px auto 50px;
+    main {
+      max-width: 700px;
+      width: 90%;
+      margin: 40px auto 60px;
       padding: 40px;
-      background: rgba(38, 24, 20, 0.95);
-      border: 3px solid #7f4e1a;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      background: #1c0a0ae6; 
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      border: 1px solid rgba(215, 181, 109, 0.2);
     }
 
     .form-group { text-align: left; margin-bottom: 20px; }
-    label { display: block; margin-bottom: 8px; font-weight: bold; color: gold; }
+    label { display: block; margin-bottom: 8px; font-weight: bold; color: #d7b56d; font-size: 0.9rem; }
     
-    input[type="text"], select {
+    input[type="text"], 
+    input[type="email"], 
+    input[type="date"] {
       width: 100%;
       padding: 12px;
+      box-sizing: border-box;
       border-radius: 8px;
-      border: 1px solid #7f4e1a;
+      border: 1px solid rgba(215, 181, 109, 0.3);
       background: #18160d;
       color: #f5e6b3;
+      font-family: 'Montserrat', sans-serif;
     }
 
-    .radio-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+    .radio-group { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 15px; 
+      margin-top: 10px; 
+    }
     
+    .radio-item {
+      background: rgba(0,0,0,0.4);
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(215, 181, 109, 0.1);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: 0.3s;
+    }
+
+    .radio-item:hover { border-color: #d7b56d; }
+    .radio-item input { margin-right: 10px; cursor: pointer; }
+
     button {
       margin-top: 20px;
-      padding: 15px 40px;
-      background: gold;
+      padding: 15px 45px;
+      background: #d7b56d;
       border: none;
       border-radius: 8px;
       font-family: 'Cinzel', serif;
       font-weight: bold;
+      color: #18160d;
       cursor: pointer;
+      transition: 0.3s;
+      font-size: 1rem;
     }
 
-    #sortingResult { display: none; margin-top: 30px; }
-    #houseText { font-family: 'Cinzel', serif; font-size: 2.2rem; color: gold; margin: 20px 0; }
+    button:hover { background: #f5e6b3; transform: translateY(-2px); }
+
+    #sortingResult { display: none; margin-top: 30px; animation: fadeIn 1s ease; }
+    #houseText { font-family: 'Cinzel', serif; font-size: 2.5rem; margin: 20px 0; }
     
     .hat-img { width: 220px; margin-bottom: 20px; }
-    .thinking { animation: shake 0.5s infinite; }
+    .thinking { animation: shake 0.6s infinite; }
 
     @keyframes shake {
       0% { transform: rotate(0deg); }
-      50% { transform: rotate(5deg); }
+      25% { transform: rotate(3deg); }
+      75% { transform: rotate(-3deg); }
       100% { transform: rotate(0deg); }
     }
 
-    footer { background: #000; padding: 20px; color: #7f4e1a; margin-top: 50px; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    footer {
+      background: linear-gradient(to right, #000, #1b1209);
+      text-align: center;
+      padding: 20px;
+      color: rgb(220, 210, 156);
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
   </style>
 </head>
 
@@ -104,10 +163,13 @@
 
 <nav>
   <a href="Home.html">Home</a>
-  <a href="Sorting Hat.html" style="color:gold;">Sorting Hat</a>
-  <a href="spells-charms.html">Spells and Charms</a>
+  <a href="Sorting Hat.html" class="active">Sorting Hat</a>
+  <a href="spells-charms.html">Spells</a>
   <a href="Journey Through Hogwarts.html">Journey</a>
   <a href="Moments of Magic.html">Moments</a>
+  <a href="Wizard Profile.html">Profile</a>
+  <a href="House Dashboard.html">Dashboard</a>
+  <a href="House Achievements.html">Achievements</a>
 </nav>
 
 <header>
@@ -115,57 +177,77 @@
 </header>
 
 <main>
-  <div class="sorting-container">
-    <div id="setupForm">
-      <h2 style="font-family: 'Cinzel';">Student Registration</h2>
-      <form id="hatForm">
-        <div class="form-group">
-          <label for="userName">Wizard/Witch Name:</label>
-          <input type="text" id="userName" placeholder="Your name..." required>
+  <div id="setupForm">
+    <h2 style="font-family: 'Cinzel'; color: #d7b56d; margin-top: 0;">Student Registration</h2>
+    <p style="font-size: 0.9rem; margin-bottom: 30px;">Complete your enrollment to be sorted into your House.</p>
+    
+    <form id="hatForm">
+      <div class="form-group">
+        <label>Full Name:</label>
+        <input type="text" id="userName" placeholder="e.g. Harry Potter">
+      </div>
+
+      <div class="form-group">
+        <label>Wizard Username:</label>
+        <input type="text" id="userHandle" placeholder="e.g. ChosenOne99">
+      </div>
+
+      <div style="display: flex; gap: 20px;">
+        <div class="form-group" style="flex: 1;">
+          <label>Owl Address:</label>
+          <input type="email" id="userEmail" placeholder="wizard@hogwarts.edu">
         </div>
-
-        <div class="form-group">
-          <label>What do you value most?</label>
-          <div class="radio-group">
-            <span><input type="radio" name="trait" value="Gryffindor" id="r1" required> Bravery</span>
-            <span><input type="radio" name="trait" value="Slytherin" id="r2"> Ambition</span>
-            <span><input type="radio" name="trait" value="Ravenclaw" id="r3"> Wisdom</span>
-            <span><input type="radio" name="trait" value="Hufflepuff" id="r4"> Loyalty</span>
-          </div>
+        <div class="form-group" style="flex: 1;">
+          <label>Birthday:</label>
+          <input type="date" id="userBirthday">
         </div>
+      </div>
 
-        <button type="button" onclick="startSorting()">Sort Me!</button>
-      </form>
-    </div>
+      <div class="form-group" style="margin-top: 10px;">
+        <label>What do you value most?</label>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="trait" value="Gryffindor"> Bravery</label>
+          <label class="radio-item"><input type="radio" name="trait" value="Slytherin"> Ambition</label>
+          <label class="radio-item"><input type="radio" name="trait" value="Ravenclaw"> Wisdom</label>
+          <label class="radio-item"><input type="radio" name="trait" value="Hufflepuff"> Loyalty</label>
+        </div>
+      </div>
 
-    <div id="sortingResult">
-      <img src="../assets/sortinghat.png" alt="Sorting Hat" class="hat-img" id="hatIcon">
-      <div id="houseText">Thinking...</div>
-      <div id="finalMessage" style="margin-bottom: 30px; font-weight: 600;"></div>
-      
-      <button onclick="window.location.href='Home.html'">Return to Hogwarts</button>
-    </div>
+      <button type="button" onclick="startSorting()">Sort Me!</button>
+    </form>
+  </div>
+
+  <div id="sortingResult">
+    <img src="../assets/sortinghat.png" alt="Sorting Hat" class="hat-img" id="hatIcon">
+    <div id="houseText">Thinking...</div>
+    <div id="finalMessage" style="margin-bottom: 30px; font-weight: 500; font-size: 1.1rem; padding: 0 20px;"></div>
+    <button onclick="window.location.href='Wizard Profile.html'">View My Profile</button>
   </div>
 </main>
 
 <footer>
   © 2025 Magic Within | Espinosa & Repedro
-    <a href="#" onclick="localStorage.clear(); location.reload();" style="color: gray; font-size: 0.8rem;">Reset Sorting Data</a>
-
+  <a href="#" onclick="localStorage.clear(); location.reload();" style="color: gray; font-size: 0.8rem; margin-left: 15px; text-decoration: none;">Reset Sorting Data</a>
 </footer>
 
 <script>
   function startSorting() {
-    const name = document.getElementById("userName").value;
-    const trait = document.querySelector('input[name="trait"]:checked');
+    const name = document.getElementById("userName").value.trim();
+    const handle = document.getElementById("userHandle").value.trim();
+    const email = document.getElementById("userEmail").value.trim();
+    const birthday = document.getElementById("userBirthday").value;
+    const traitInput = document.querySelector('input[name="trait"]:checked');
     
-    if (!name || !trait) {
-      alert("Please enter your name and choose a trait!");
+    if (!name || !handle || !email || !birthday || !traitInput) {
+      alert("Please fill in all the details for your enrollment!");
       return;
     }
 
+    const finalHouse = traitInput.value;
+
     document.getElementById("setupForm").style.display = "none";
     document.getElementById("sortingResult").style.display = "block";
+    
     const hat = document.getElementById("hatIcon");
     const houseText = document.getElementById("houseText");
     const message = document.getElementById("finalMessage");
@@ -174,22 +256,23 @@
 
     setTimeout(() => {
       hat.classList.remove("thinking");
-      const finalHouse = trait.value;
       
       localStorage.setItem("wizardName", name);
+      localStorage.setItem("wizardHandle", handle);
+      localStorage.setItem("wizardEmail", email);
+      localStorage.setItem("wizardBirthday", birthday);
       localStorage.setItem("wizardHouse", finalHouse);
 
       houseText.textContent = finalHouse.toUpperCase() + "!";
-      message.innerHTML = `Congratulations, ${name}! You have been sorted into ${finalHouse}.`;
+      message.innerHTML = `Welcome to Hogwarts, ${name}!<br>You belong in <strong>${finalHouse}</strong>. Your owl has been sent to ${email}.`;
       
       if(finalHouse === "Gryffindor") houseText.style.color = "#ff4d4d";
       if(finalHouse === "Slytherin") houseText.style.color = "#2ecc71";
       if(finalHouse === "Ravenclaw") houseText.style.color = "#3498db";
-      if(finalHouse === "Hufflepuff") houseText.style.color = "#f1c40f";
+      if(finalHouse === "Hufflepuff") houseText.style.color = "#d7b56d";
       
-    }, 2500);
+    }, 3000);
   }
 </script>
-
 </body>
 </html>
