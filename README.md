@@ -112,9 +112,24 @@ Each page includes:
 
 The footer features a dark gradient background with gold text to maintain a magical aesthetic.
 
+--- 
+
+## 9. FULL CRUD PROCESS 
+**Sorting Hat Page**
+- The Sorting Hat page serves as the main registration system where users create their account by entering a username, owl address, day of birth and answering a quiz. This information is saved (CREATE) and assigns the user to a Hogwarts house. Users can also resort their house by retaking the quiz (UPDATE) or reset/delete their data to remove all saved information (DELETE). This page is the starting point of all user data in the website.
+
+**Wizard Profile Page**
+- The Wizard Profile page displays the user’s saved information such as the Hogwarts house, username, owl address, date of birth, and profile standing (READ). It retrieves the data and updates automatically when changes are made. Users can edit their information or resort their house (UPDATE), and they can also delete their profile completely (DELETE), which removes all stored data and resets their progress.
+
+**House Dashboard Page**
+- The House Dashboard page uses the saved Hogwarts house data to show personalized content (READ) such as a welcome letter, upcoming tasks or activities, and a class schedule based on their assigned house. When the user updates their house or profile, the dashboard content also changes (UPDATE).
+  
+**House Achievements Page**
+- The House Achievements page displays the user’s progress and house standings (READ) including Quidditch rewards, letters received, potions completed, mastered spells, and house points. These values are stored and updated, so when the user interacts with the system or updates their data, the achievements also change (UPDATE).
+
 ---
 
-## 9. Wireframes / Mock-ups
+## 10. Wireframes / Mock-ups
 
 The following wireframes were created in Canva to show the layout, page titles, navigation, and form elements for the pages, including the full CRUD process and the three new pages.
 
@@ -128,7 +143,7 @@ The following wireframes were created in Canva to show the layout, page titles, 
 - ![Achievements](https://github.com/cevespinosa/WDProjMagnesiumEspinosaRepedro/blob/1ac9102ed84777628beab3ae7338c7bd7020f45b/assets/Navigation%20bar%20(HOME%20PAGE).png)
 
   
-## 10. HTML Form Design and Narrative
+## 11. HTML Form Design and Narrative
 
 The **Sorting Hat Registration Form**, located on the Sorting Hat page, collects the user’s name and quiz answers. After submission, the data is saved on the user’s computer and used to personalize the experience across the website.
 
@@ -144,7 +159,7 @@ The saved information is displayed and reused on the following pages:
 
 ---
 
-## 11. New Webpages
+## 12. New Webpages
 
 1. **Wizard Profile**
 2. **House Dashboard**
