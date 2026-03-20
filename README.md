@@ -1,5 +1,5 @@
 # Cassie Espinosa & Maxine Repedro | 9-Magnesium
-###FINAL MODIFICATION PROPOSAL###
+# ****FINAL MODIFICATION PROPOSAL****
 ## 1. Website Title
 **Magic Within**
 
@@ -176,7 +176,7 @@ The footer features a dark gradient background with gold text to maintain a magi
 - **Displays (READ):**
 - Quidditch rewards
 - Letters received
-- Potions
+- Brewer
 - Mastered spells
 - House points
 
