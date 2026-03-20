@@ -33,7 +33,7 @@ The goal of Magic Within is to bring the enchantment of the Wizarding World clos
 ### Home
 A welcoming page with a Hogwarts-themed background, introduction text, and site navigation.
 
-### Sorting Hat
+### Sorting Hat (UPDATED)
 An existing page that now includes the **Sorting Hat Registration Form** to collect the user’s name and quiz answers.
 
 ### Spells & Charms
@@ -45,14 +45,23 @@ A virtual tour of Hogwarts classrooms such as Potions, Charms, and Defense Again
 ### Moments of Magic
 A visual collection of magical moments, quotes, and iconic Harry Potter scenes.
 
-### Wizard Profile (New Page)
-Displays the user’s name and Hogwarts house collected from the Sorting Hat form.
+### Wizard Profile (NEW PAGE)
+Displays the user’s username, owl address, birthday, Hogwarts house, and profile standing based on the saved data from the sorting hat.
 
-### House Dashboard (New Page)
-Uses the saved house information to display personalized greetings, messages, or recommended content.
+### House Dashboard (NEW PAGE)
+Shows personalized content based on the logged-in user’s house such as:
+- Upcoming tasks/activities
+- Welcome letter and dormitories
+- Class schedule
 
-### House Achievements (New Page)
-Shows house points, badges, and achievements earned by the user’s house for interactive fun and engagement.
+### House Achievements (NEW PAGE)
+Displays earned and saved house standings including:
+- House points
+- Quidditch rewards
+- Letters received
+- Potions completed
+- Mastered spells
+
 
 ---
 
@@ -61,13 +70,16 @@ Shows house points, badges, and achievements earned by the user’s house for in
 JavaScript is used in the following areas:
 
 - **Home Page:** Floating candle animations and smooth scrolling effects
-- **Sorting Hat:** Logic for answering questions, calculating results, and saving user data
-- **Spells & Charms:** Interactive spell animations on hover or click
+- **Sorting Hat:** Student registration, log-in system, and saving data (CREATE)
+- **Spells & Charms:** Standard book of spells with flipping book animation
 - **Journey Through Hogwarts:** Transitions and interactive classroom descriptions
 - **Moments of Magic:** Image hover effects and modal pop-ups
-- **Wizard Profile:** Retrieves and displays saved user data
-- **House Dashboard:** Uses house information to personalize greetings, visuals, and recommended content
-- **House Achievements:** Dynamically updates house points, badges, and interactive animations
+- **Wizard Profile:** Retrieves and displays saved user data (READ)
+- **House Dashboard:** Uses house information to personalize greetings, visuals, and recommended content (READ)
+- **House Achievements:** Dynamically updates house points, badges, and interactive animations (READ & UPDATE)
+  
+- **RESORT/EDIT FEATURE:** Updates user house and profile (UPDATE)
+- **DELETE/RESET FEATURE:** Removes user data from localStorage (DELETE)
 
 ---
 
@@ -104,54 +116,72 @@ The footer features a dark gradient background with gold text to maintain a magi
 
 ## 9. Wireframes / Mock-ups
 
-### Home Page
-- Header: Logo and navigation bar
-- Main Section: Title, introduction text, Hogwarts background image
+***Home Page***
+- Header: Logo + navigation
+- Main Section: Intro + background
+- ➕ Log In / Register button
 - Footer
 
-### Sorting Hat Page
+***Sorting Hat Page (UPDATED)***
 - Header
-- Quiz form with input fields
-- Submit button displays assigned house
+- **Registration & Log In Form:**
+- Name
+- Username
+- Owl Address
+- Birthday
+- Quiz
+
+- Submit button → saves data (CREATE)
+- ➕ Resort House button (UPDATE)
+- ➕ Reset/Delete Data button (DELETE)
 - Footer
 
-### Spells & Charms Page
+
+***Spells & Charms Page***
 - Header
-- Spell cards with hover and click animations
+- Spell cards
 - Footer
 
-### Journey Through Hogwarts Page
+***Journey Through Hogwarts Page***
 - Header
-- Image gallery with interactive pop-ups
+- Interactive gallery
 - Footer
 
-### Moments of Magic Page
+***Moments of Magic Page***
 - Header
-- Grid of magical moments with modal pop-ups
+- Image grid with pop-ups
 - Footer
 
-### Wizard Profile Page (New)
+***Wizard Profile Page (UPDATED)***
 - Header
-- Displays user name and Hogwarts house
+- **Displays:**
+- Hogwarts house
+  
+-  Profile standing (READ)
+- ➕ Edit/Resort button (UPDATE)
+- ➕ Delete Profile button (DELETE)
 - Footer
 
-### House Dashboard Page (New)
+***House Dashboard Page (UPDATED)***
 - Header
-- Personalized house-based content
+
+- **Displays (READ):**
+- Welcome letter
+- Upcoming tasks
+- Class schedule
 - Footer
 
-### House Achievements Page (New)
+***House Achievements Page (UPDATED)***
 - Header
-- Displays house points, badges, and animations
+- **Displays (READ):**
+- Quidditch rewards
+- Letters received
+- Potions
+- Mastered spells
+- House points
+
+- Dynamically updates when data changes (UPDATE)
 - Footer
-
-### Navigation Flow
-- Top navigation bar links all pages
-- Logo links back to the Home page
-- Hamburger menu used for mobile responsiveness
-
----
-
 ## 10. HTML Form Design and Narrative
 
 The **Sorting Hat Registration Form**, located on the Sorting Hat page, collects the user’s name and quiz answers. After submission, the data is saved on the user’s computer and used to personalize the experience across the website.
@@ -162,7 +192,7 @@ The saved information is displayed and reused on the following pages:
 - House Achievements Page
 
 ### Form Elements Used
-- Text input for user name
+- Text input for username
 - Radio buttons or quiz options
 - Submit button
 
