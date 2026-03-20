@@ -116,72 +116,18 @@ The footer features a dark gradient background with gold text to maintain a magi
 
 ## 9. Wireframes / Mock-ups
 
-***Home Page***
-- Header: Logo + navigation
-- Main Section: Intro + background
-- ➕ Log In / Register button
-- Footer
+The following wireframes were created in Canva to show the layout, page titles, navigation, and form elements for the pages, including the full CRUD process and the three new pages.
 
-***Sorting Hat Page (UPDATED)***
-- Header
-- **Registration & Log In Form:**
-- Name
-- Username
-- Owl Address
-- Birthday
-- Quiz
+- ![Home](https://github.com/cevespinosa/WDProjMagnesiumEspinosaRepedro/blob/main/assets/1.png?raw=true)
+- ![Sorting Hat](https://github.com/cevespinosa/WDProjMagnesiumEspinosaRepedro/blob/7141d0a1e9eb913cf245563622a1be98505078fd/assets/2.png)
+- ![Spells](https://github.com/cevespinosa/WDProjMagnesiumEspinosaRepedro/blob/7141d0a1e9eb913cf245563622a1be98505078fd/assets/3.png)
+- ![Journey](https://github.com/cevespinosa/WDProjMagnesiumEspinosaRepedro/blob/7141d0a1e9eb913cf245563622a1be98505078fd/assets/4.png)
+- ![Moments](https://github.com/cevespinosa/WDProjMagnesiumEspinosaRepedro/blob/7141d0a1e9eb913cf245563622a1be98505078fd/assets/5.png)
+- ![Profile](https://github.com/cevespinosa/WDProjMagnesiumEspinosaRepedro/blob/7141d0a1e9eb913cf245563622a1be98505078fd/assets/6.png)
+- ![Dashboard](https://github.com/cevespinosa/WDProjMagnesiumEspinosaRepedro/blob/7141d0a1e9eb913cf245563622a1be98505078fd/assets/7.png)
+- ![Achievements](https://github.com/cevespinosa/WDProjMagnesiumEspinosaRepedro/blob/1ac9102ed84777628beab3ae7338c7bd7020f45b/assets/Navigation%20bar%20(HOME%20PAGE).png)
 
-- Submit button → saves data (CREATE)
-- ➕ Resort House button (UPDATE)
-- ➕ Reset/Delete Data button (DELETE)
-- Footer
-
-
-***Spells & Charms Page***
-- Header
-- Spell cards
-- Footer
-
-***Journey Through Hogwarts Page***
-- Header
-- Interactive gallery
-- Footer
-
-***Moments of Magic Page***
-- Header
-- Image grid with pop-ups
-- Footer
-
-***Wizard Profile Page (UPDATED)***
-- Header
-- **Displays:**
-- Hogwarts house
   
--  Profile standing (READ)
-- ➕ Edit/Resort button (UPDATE)
-- ➕ Delete Profile button (DELETE)
-- Footer
-
-***House Dashboard Page (UPDATED)***
-- Header
-
-- **Displays (READ):**
-- Welcome letter
-- Upcoming tasks
-- Class schedule
-- Footer
-
-***House Achievements Page (UPDATED)***
-- Header
-- **Displays (READ):**
-- Quidditch rewards
-- Letters received
-- Brewer
-- Mastered spells
-- House points
-
-- Dynamically updates when data changes (UPDATE)
-- Footer
 ## 10. HTML Form Design and Narrative
 
 The **Sorting Hat Registration Form**, located on the Sorting Hat page, collects the user’s name and quiz answers. After submission, the data is saved on the user’s computer and used to personalize the experience across the website.
@@ -205,10 +151,5 @@ The saved information is displayed and reused on the following pages:
 3. **House Achievements**
 
 ---
-## Wireframes (New Webpages)
 
-The following wireframes were created in Canva to show the layout, page titles, navigation, and form elements for the three newly proposed webpages:
 
-- ![Wizard Profile](https://github.com/cevespinosa/WDProjMagnesiumEspinosaRepedro/blob/1d4142007a46b5bb6f6bc6e0dab0eeec788e08dd/Screenshot%20(333).png)
-- ![House Dashboard](https://github.com/cevespinosa/WDProjMagnesiumEspinosaRepedro/blob/1d4142007a46b5bb6f6bc6e0dab0eeec788e08dd/Screenshot%20(334).png)
-- ![House Achievements](https://github.com/cevespinosa/WDProjMagnesiumEspinosaRepedro/blob/1d4142007a46b5bb6f6bc6e0dab0eeec788e08dd/Screenshot%20(335).png)
