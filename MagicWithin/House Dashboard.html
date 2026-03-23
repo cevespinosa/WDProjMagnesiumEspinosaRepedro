@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/logo.jpg" type="image/png">
+  <title>House Dashboard | Magic Within</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #18160d;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #f5e6b3;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    #houseOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: -2;
+      transition: background-color 0.8s ease;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(to right, #261814, #2d1f13);
+      display: flex;
+      justify-content: center;
+      padding: 14px 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 18px;
+      color: #f5e6b3;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a.active { color: #d7b56d; }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 40px;
+      background: rgba(28, 10, 10, 0.6);
+      border-radius: 18px;
+      border: 1px solid rgba(215, 181, 109, 0.2);
+      animation: fadeUp 1.2s ease;
+    }
+
+    .dash-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .dash-box {
+      background: rgba(0,0,0,0.5);
+      border: 2px solid #d7b56d;
+      border-radius: 12px;
+      padding: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .dash-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(215, 181, 109, 0.3);
+    }
+
+    .dash-box h3 {
+      font-family: 'Cinzel', serif;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    #displayArea {
+      margin-top: 40px;
+      padding: 30px;
+      background: rgba(0,0,0,0.7);
+      border-radius: 15px;
+      border: 1px solid #d7b56d;
+      display: none;
+      animation: fadeIn 0.5s ease;
+      text-align: left;
+    }
+
+    .sched-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .sched-table td {
+      padding: 10px;
+      border-bottom: 1px solid rgba(215, 181, 109, 0.2);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="houseOverlay"></div>
+
+<nav>
+  <a href="Home.html">Home</a>
+  <a href="Sorting Hat.html">Sorting Hat</a>
+  <a href="spells-charms.html">Spells</a>
+  <a href="Journey Through Hogwarts.html">Journey</a>
+  <a href="Moments of Magic.html">Moments</a>
+  <a href="Wizard Profile.html" class="active">Profile</a>
+  <a href="House Dashboard.html">Dashboard</a>
+  <a href="House Achievements.html">Achievements</a>
+</nav>
+
+<main>
+  <h1 id="welcomeTitle" style="font-family:'Cinzel'; font-size: 2.5rem; margin: 0;">House Dashboard</h1>
+  <p id="houseSubtitle" style="font-style: italic; margin-bottom: 30px;"></p>
+
+  <div class="dash-grid">
+    <div class="dash-box" onclick="showContent('notice')">
+      <h3>Notice Board</h3>
+      <p style="font-size: 0.8rem;">Upcoming Tasks</p>
+    </div>
+    <div class="dash-box" onclick="showContent('dorm')">
+      <h3>Dormitories</h3>
+      <p style="font-size: 0.8rem;">Welcome Letter</p>
+    </div>
+    <div class="dash-box" onclick="showContent('classes')">
+      <h3>Classes</h3>
+      <p style="font-size: 0.8rem;">House Schedule</p>
+    </div>
+  </div>
+
+  <div id="displayArea">
+    <h2 id="displayTitle" style="font-family: 'Cinzel'; margin-top: 0;"></h2>
+    <div id="displayContent"></div>
+  </div>
+</main>
+
+<script>
+  const house = localStorage.getItem("wizardHouse") || "Gryffindor";
+
+  const config = {
+    "Gryffindor": {
+      color: "#ff4d4d",
+      bg: "https://i.pinimg.com/736x/81/1d/94/811d948daa3fb6d7f727fa11bbcc0b59.jpg",
+      shade: "rgba(55, 10, 10, 0.7)",
+      tasks: ["Submit Transfiguration Essay", "Practice Expelliarmus", "Quidditch Tryouts at 5PM"],
+      dorm: "Welcome to the Tower, brave lion! Your trunk has been placed at the foot of your four-poster bed. Mind the Fat Lady's password!",
+      sched: [["09:00", "Defense Against the Dark Arts"], ["11:00", "Transfiguration"], ["14:00", "Flying Lessons"]]
+    },
+    "Slytherin": {
+      color: "#2ecc71",
+      bg: "https://i.pinimg.com/1200x/8d/aa/ac/8daaac79c7f54f993d0bd0a4bd77c0ec.jpg",
+      shade: "rgba(18, 55, 30, 0.7)",
+      tasks: ["Perfect the Draught of Living Death", "Etiquette Review", "Dueling Club Registration"],
+      dorm: "Welcome to the Dungeons. Enjoy the view of the Giant Squid through the windows. Ambition is your only limit here.",
+      sched: [["09:00", "Potions"], ["11:00", "Dark Arts Theory"], ["14:00", "Alchemy"]]
+    },
+    "Ravenclaw": {
+      color: "#3498db",
+      bg: "https://i.pinimg.com/1200x/0c/6a/16/0c6a163ee087492e871ab4834c4637bb.jpg",
+      shade: "rgba(10, 18, 55, 0.7)",
+      tasks: ["Complete Ancient Runes Translation", "Library Research: Animagi", "Stargazing Report"],
+      dorm: "Welcome to the Eagle's Roost. May the wind at this height sharpen your wit. The library books are in the corner.",
+      sched: [["09:00", "Astronomy"], ["11:00", "Charms"], ["14:00", "History of Magic"]]
+    },
+    "Hufflepuff": {
+      color: "#d7b56d",
+      bg: "https://i.pinimg.com/1200x/6e/4c/95/6e4c95009ce5b795c832d987e61eca7e.jpg",
+      shade: "rgba(60, 48, 10, 0.7)",
+      tasks: ["Re-pot the Mandrakes", "Kitchen Duty (Voluntary)", "Care of Magical Creatures Quiz"],
+      dorm: "Welcome home! The Badger's Sett is warm, cozy, and right by the kitchens. Kick off your boots and stay a while.",
+      sched: [["09:00", "Herbology"], ["11:00", "Care of Magical Creatures"], ["14:00", "Muggle Studies"]]
+    }
+  };
+
+  window.onload = function() {
+    const info = config[house];
+    document.getElementById("welcomeTitle").style.color = info.color;
+    document.getElementById("houseSubtitle").textContent = "Common Room of " + house;
+    document.body.style.backgroundImage = `url('${info.bg}')`;
+    document.getElementById("houseOverlay").style.backgroundColor = info.shade;
+    
+    document.querySelectorAll('.dash-box').forEach(box => {
+      box.style.borderColor = info.color;
+    });
+  };
+
+  function showContent(type) {
+    const area = document.getElementById("displayArea");
+    const title = document.getElementById("displayTitle");
+    const content = document.getElementById("displayContent");
+    const info = config[house];
+
+    area.style.display = "block";
+    title.style.color = info.color;
+
+    if (type === 'notice') {
+      title.textContent = "Notice Board";
+      content.innerHTML = `<ul style="line-height: 2;">${info.tasks.map(t => `<li>${t}</li>`).join('')}</ul>`;
+    } else if (type === 'dorm') {
+      title.textContent = "Dormitory Welcome";
+      content.innerHTML = `<p style="line-height: 1.8;">${info.dorm}</p>`;
+    } else if (type === 'classes') {
+      title.textContent = "Today's Schedule";
+      let table = `<table class="sched-table">`;
+      info.sched.forEach(s => {
+        table += `<tr><td style="font-weight:bold; width: 80px;">${s[0]}</td><td>${s[1]}</td></tr>`;
+      });
+      table += `</table>`;
+      content.innerHTML = table;
+    }
+    
+    window.scrollTo({ top: area.offsetTop, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
